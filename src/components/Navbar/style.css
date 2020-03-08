@@ -1,0 +1,22 @@
+.MuiAppBar-colorPrimary {
+    background-color: white!important;
+    color: black!important;
+}
+
+img {
+    width: 100px;
+}
+
+.profile {
+    margin-left: auto;
+    color: rgb(224, 167, 10);
+}
+
+.profile-icon {
+    margin-bottom: -10px;
+    margin-right: -10px;
+}
+
+#logout-button:hover {
+    cursor: pointer;
+}
