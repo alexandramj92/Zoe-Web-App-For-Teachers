@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
 import CodeDisplay from './components/CodeDisplay';
+import Footer from './components/Footer';
 
 
 
@@ -11,7 +12,7 @@ function App() {
     <div>
      <Navbar />
     <CodeDisplay />
-
+    <Footer />
     </div>
    
    
