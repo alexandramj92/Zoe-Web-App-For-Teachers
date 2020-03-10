@@ -5,7 +5,7 @@ import { Container } from '@material-ui/core';
 
 
 
-require('./style.css');
+require('./codeDis.css');
 
 const defaultProps = {
   bgcolor: 'background.paper',
@@ -23,7 +23,7 @@ export default function DisplayCode() {
       <Box id="code-box" border={1} {...defaultProps} > {projectCode} </Box>
       <p id="instruction">Input this code in Zoe VR to connect to this project</p>
     </Box>
-    <Button variant="contained">Back to Project</Button>
+    <Button id="back-to-project" variant="contained">Back to Project</Button>
 
       </Container>
     

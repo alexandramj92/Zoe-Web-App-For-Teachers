@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import CodeDisplay from './components/CodeDisplay';
 import Footer from './components/Footer';
 import MainRouter from './components/MainRouter';
+import Login from './components/Login';
 
 
 
@@ -12,7 +13,7 @@ function App() {
     <div>
       <MainRouter>
         <Navbar />
-          <CodeDisplay />
+          <Login />
         <Footer />
       </MainRouter>
     </div>
