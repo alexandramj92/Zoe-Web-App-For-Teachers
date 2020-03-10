@@ -1,0 +1,66 @@
+div.MuiPaper-root.MuiCard-root.makeStyles-root-59.MuiPaper-elevation1.MuiPaper-rounded, #login-card {
+    height: 415px!important;
+    width: 307px!important;
+    margin-top: 50px!important;
+    text-align: -webkit-center;
+    border-radius: 1.5em;
+}
+
+#login-cont {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-bottom: 100px;
+}
+
+#login-img {
+    width: 65px;
+}
+
+.login-a, span {
+    font-size: 10px!important;
+}
+
+h2{
+    font-size: 18px;
+    text-align: center;
+    color: darkblue;
+}
+
+label {
+    font-size: 10px!important;
+}
+
+input {
+    height: 3px!important;
+    padding-top: 15px!important;
+    font-size: 12px!important;
+}
+
+h4{
+    margin: 0;
+    font-size: 12px;
+    color: rgb(100, 96, 96)!important;
+
+}
+
+
+#login-but {
+    background-color: rgb(224, 167, 10)!important;
+    color: white!important;
+    border-radius: 1.5em!important;
+    padding: 6px 40px!important;
+    margin-top: 10px;
+
+
+}
+
+#but-div {
+    justify-content: center;
+}
+
+#checkbox svg, button svg {
+    width: 16px!important;
+
+}
+

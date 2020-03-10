@@ -1,5 +1,6 @@
 #container {
     text-align: center;
+    margin-bottom: 100px;
 }
 
 h1{
@@ -24,7 +25,7 @@ h1{
     margin-bottom: 60px;
 }
 
-button {
+#back-to-project {
     background-color: #14d17f!important;
     color: white!important;
     border-radius: 1.5em!important;
