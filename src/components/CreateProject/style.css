@@ -24,7 +24,19 @@ h2{
 }
 
 .MuiInputBase-input {
-    width: 552px!important;
+    width: 100%!important;
+}
+
+.MuiFilledInput-input {
+    padding: 10px!important
+}
+
+.MuiFilledInput-multiline {
+    padding: 0px!important
+}
+
+.MuiGrid-root {
+    padding: 0px!important
 }
 
 .MuiButton-contained {

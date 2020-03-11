@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function MultilineTextFields() {
     const classes = useStyles();
-    const [value, setValue] = React.useState('Controlled');
+    const [setValue] = React.useState('Controlled');
   
     const handleChange = event => {
       setValue(event.target.value);
@@ -27,11 +27,14 @@ export default function MultilineTextFields() {
   return (
       <Container id="heading" maxWidth="sm">
       <h1>Create a New Project</h1>
+
       <Grid container spacing={3}>
+
+      <h2>Project Name</h2>
+
         <Grid item xs={12}>
-          <Box display="flex" justifyContent="flex-start">
-            <div id="nameBox">
-                <h2>Project Name</h2>
+          {/* <Box display="flex" justifyContent="flex-start"> */}
+            {/* <div id="nameBox"> */}
                 <Grid item xs={12}>
                   <TextField
                   defaultValue="Name"
@@ -41,13 +44,15 @@ export default function MultilineTextFields() {
                   fullWidth
                   />
                 </Grid>
-            </div>
-          </Box>
+            {/* </div> */}
+          {/* </Box> */}
         </Grid>
+
+        <h2>Project Description</h2>
+
         <Grid item xs={12}>
-          <Box display="flex" justifyContent="flex-start">
-            <div id="descriptionBox">
-                <h2>Project Description</h2>
+          {/* <Box display="flex" justifyContent="flex-start"> */}
+            {/* <div id="descriptionBox"> */}
                 <Grid item xs={12}>
                   <TextField
                   multiline
@@ -59,8 +64,8 @@ export default function MultilineTextFields() {
                   fullWidth
                   />
                 </Grid>
-            </div>
-          </Box>
+            {/* </div> */}
+          {/* </Box> */}
         </Grid>
       </Grid>
       <Grid container>
