@@ -40,7 +40,7 @@ h2{
 }
 
 .MuiButton-contained {
-    width: 200px;
+    width: 100%!important;
 }
 
 #cancel {
@@ -48,6 +48,7 @@ h2{
     color: white!important;
     border-radius: 1.5em!important;
     padding: 6px 40px!important;
+    margin-top: 30px;
 }
 
 #next {
@@ -55,4 +56,5 @@ h2{
     color: white!important;
     border-radius: 1.5em!important;
     padding: 6px 40px!important;
+    margin-top: 30px;
 }
