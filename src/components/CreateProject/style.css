@@ -1,0 +1,60 @@
+#heading {
+    text-align: center;
+}
+
+#descriptionBox {
+    margin-bottom: 20px;
+}
+
+h1{
+    color: darkblue;
+}
+
+h2{
+    color: #656565;
+    text-align: left;
+}
+
+.MuiFilledInput-underline:before {
+    border-bottom: none!important;
+}
+
+.MuiFilledInput-underline:after {
+    border-bottom: none!important;
+}
+
+.MuiInputBase-input {
+    width: 100%!important;
+}
+
+.MuiFilledInput-input {
+    padding: 10px!important
+}
+
+.MuiFilledInput-multiline {
+    padding: 0px!important
+}
+
+.MuiGrid-root {
+    padding: 0px!important
+}
+
+.MuiButton-contained {
+    width: 100%!important;
+}
+
+#cancel {
+    background-color: #BBBBBB!important;
+    color: white!important;
+    border-radius: 1.5em!important;
+    padding: 6px 40px!important;
+    margin-top: 30px;
+}
+
+#next {
+    background-color: #14d17f!important;
+    color: white!important;
+    border-radius: 1.5em!important;
+    padding: 6px 40px!important;
+    margin-top: 30px;
+}
