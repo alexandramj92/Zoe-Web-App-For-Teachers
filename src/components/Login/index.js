@@ -15,6 +15,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import { Link } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
+import axios from 'axios';
 
 
 require('./login.css');
@@ -55,13 +56,13 @@ export default function SimpleCard() {
 
 
   const [values, setValues] = React.useState({
+    username: '',
     amount: '',
     password: '',
     weight: '',
     weightRange: '',
     showPassword: false,
     checkedB: true,
-
   });
 
   const handleChecked = name => event => {
@@ -70,6 +71,7 @@ export default function SimpleCard() {
 
   const handleChange = prop => event => {
     setValues({ ...values, [prop]: event.target.value });
+    console.log(event.target.value);
   };
 
   const handleClickShowPassword = () => {
@@ -79,6 +81,28 @@ export default function SimpleCard() {
   const handleMouseDownPassword = event => {
     event.preventDefault();
   };
+  
+  const loginUser = submitObject => {
+    console.log(submitObject)
+  };
+
+  // When form submits, username and password are stored in an object, then passed to login function as an argument
+  const handleSubmit = event => {
+    event.preventDefault();
+    console.log(this.state.username, this.state.password);
+    const usernameInput = this.state.username;
+    const passwordInput = this.state.password;
+
+    const objSubmit = {
+      username: usernameInput,
+      password: passwordInput
+    }
+
+    if (!objSubmit.username || !objSubmit.password) {
+      return;
+    }
+    loginUser(objSubmit);
+  }
 
 
   return (
@@ -90,7 +114,7 @@ export default function SimpleCard() {
 
 
 
-       <form className={classes.root} noValidate autoComplete="off">
+       <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
 
        <Grid container wrap="nowrap" >
         {/* Email Input */}
@@ -99,7 +123,7 @@ export default function SimpleCard() {
 
         <Grid container wrap="nowrap" >
         <FormControl className={clsx(classes.margin, classes.textField)} variant="filled">
-        <FilledInput id="my-input" aria-describedby="my-helper-text" placeholder="School.ad@gmail.com" />
+        <FilledInput id="my-input" aria-describedby="my-helper-text" placeholder="School.ad@gmail.com" onChange={handleChange('username')}/>
         </FormControl>
         </Grid>
 

@@ -6,6 +6,7 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+import { Link } from '@reach/router';
 
 require('./style.css');
 
@@ -44,7 +45,7 @@ export default function DenseAppBar() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar variant="dense">
-        <img src={logo}/>
+        <Link to="/"><img src={logo} alt="Learn Zoe"/></Link>
 
         <div className="profile">
         <p> Welcome {user} 

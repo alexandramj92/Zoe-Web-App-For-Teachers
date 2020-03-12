@@ -12,17 +12,15 @@ import Student from './components/Student';
 class MainRouter extends Component {
     render() {
         return(
-            <AppProvider>
             <Router>
-                <Login path="/login"/>
-                <Dashboard path="/dashboard" />
+                <Login path="/"/>
+                {/* <Dashboard path="/dashboard" /> */}
                 <AddProject path="/addproject" />
-                <AddStudents path="/addstudents" />
+                {/* <AddStudents path="/addstudents" />
                 <CodeDisplay path="/code" />
                 <Project path="/project/:id" />
-                <Student path="/student/:id" />
+                <Student path="/student/:id" /> */}
             </Router>
-            </AppProvider>
         )
     }
 }

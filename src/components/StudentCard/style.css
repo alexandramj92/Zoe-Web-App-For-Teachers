@@ -1,0 +1,21 @@
+.student-card {
+    padding-left: 10px;
+    background-color: #fafafa;
+    width: 400px;
+    border-radius: 20px;
+    border: 1px solid #cbcbcb;
+    margin: 20px;
+}
+
+.student-card h4 {
+    display: inline-flex;
+    margin: 5px;
+    line-height: 1em;
+    align-items: center;
+    justify-content: center;
+}
+
+#student-card-icon {
+    display: inline-flex;
+    margin: 5px;
+}

@@ -58,3 +58,7 @@ h2{
     padding: 6px 40px!important;
     margin-top: 30px;
 }
+
+a {
+    text-decoration: none;
+}

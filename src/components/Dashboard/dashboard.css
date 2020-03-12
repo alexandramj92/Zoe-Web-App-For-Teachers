@@ -1,0 +1,33 @@
+.Dashboard {
+    text-align: center;
+}
+
+.display-dashboard {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.add-button {
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+#add-project-icon {
+    display: inline-flex;
+    letter-spacing: 0.25em;
+    padding: 5px;
+}
+
+#add-students-button {
+    color: gray;
+    font-weight: lighter;
+    border: 1px dashed rgb(191, 189, 189);
+    border-radius: 25px;
+}
+
+a {
+    text-decoration: none;
+}
