@@ -1,26 +1,47 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
-import CodeDisplay from './components/CodeDisplay';
+// import CodeDisplay from './components/CodeDisplay';
 import Footer from './components/Footer';
-import CreateProject from './components/CreateProject';
-import MainRouter from './components/MainRouter';
+// import CreateProject from './components/CreateProject';
+// import MainRouter from './components/MainRouter';
 import Login from './components/Login';
 
+class App extends Component {
+  state = {
+      data: null
+    };
+    
+    componentDidMount() {
+      // Call our fetch function below once the component mounts
+    this.callBackendAPI()
+      .then(res => this.setState({ data: res.express }))
+      .catch(err => console.log(err));
+    }
+    // Fetches our GET route from the Express server. (Note the route we are fetching matches the GET route from server.js
+    callBackendAPI = async () => {
+    const response = await fetch('/express_backend');
+    const body = await response.json();
 
+    if (response.status !== 200) {
+      throw Error(body.message) 
+    }
+    return body;
+    };
 
-function App() {
-  return (
-    <div>
-      <MainRouter>
-        <Navbar />
-          <Login />
-        <Footer />
-      </MainRouter>
-    </div>
-   
-   
-  );
+      render(){
+        return (
+        <div>
+          {/* <MainRouter> */}
+            <Navbar />
+              <Login />
+            <Footer />
+          {/* </MainRouter> */}
+        </div>
+      
+      
+      );
+    }
 }
 
 export default App;
