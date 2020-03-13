@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import StudentCard from '../StudentCard';
-import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
+import AddStudentModal from '../AddStudentModal';
+require("../StudentCard/style.css");
 
 class Students extends Component {
     static defaultProps = {
@@ -17,9 +18,8 @@ class Students extends Component {
             {this.props.students.map((s) => (
                 <StudentCard key={s.id} name={s.name} icon={s.icon} />
             ))}
-            <div className='add-button' id='add-students-button'>
-                <AddCircleOutlineIcon id='add-student-icon'/>
-                <h3>Add Students</h3>
+            <div className="add-student-modal">
+                <AddStudentModal />
             </div>
         </div>
     )

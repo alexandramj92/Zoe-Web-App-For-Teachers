@@ -10,12 +10,17 @@
 .student-card h4 {
     display: inline-flex;
     margin: 5px;
-    line-height: 1em;
+    line-height: 1em !important;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 
 #student-card-icon {
     display: inline-flex;
     margin: 5px;
+}
+
+.add-student-modal {
+    width: 400px;
 }

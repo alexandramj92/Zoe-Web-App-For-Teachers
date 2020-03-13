@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Avatar } from '@material-ui/core';
-import './style.css';
+require ('./style.css');
 
 class StudentCard extends Component {
     render () {

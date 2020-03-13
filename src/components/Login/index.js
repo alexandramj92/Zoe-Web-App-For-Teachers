@@ -84,18 +84,18 @@ export default function SimpleCard() {
   
   const loginUser = submitObject => {
     console.log(submitObject)
+    // Axios call will go here, authenticating user input 
+    
   };
 
   // When form submits, username and password are stored in an object, then passed to login function as an argument
   const handleSubmit = event => {
     event.preventDefault();
-    console.log(this.state.username, this.state.password);
-    const usernameInput = this.state.username;
-    const passwordInput = this.state.password;
-
+ 
+    const {username, password} = values;
     const objSubmit = {
-      username: usernameInput,
-      password: passwordInput
+      username,
+      password
     }
 
     if (!objSubmit.username || !objSubmit.password) {
@@ -187,7 +187,7 @@ export default function SimpleCard() {
         </Grid>
 
         <Grid container wrap="nowrap" id="but-div">
-        <Button id="login-but" variant="contained">Connection</Button>
+        <Button id="login-but" variant="contained" type="submit">Connection</Button>
         </Grid>
 
         </form>

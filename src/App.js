@@ -7,6 +7,7 @@ import CreateProject from './components/CreateProject';
 import Login from './components/Login';
 import { Router } from '@reach/router';
 import Dashboard from './components/Dashboard';
+import AddStudents from './components/AddStudents';
 
 
 function App() {
@@ -16,13 +17,12 @@ function App() {
           <Router>
             <Login path="/" />
             <CreateProject path="/addproject" />
+            <AddStudents path="/addstudents" />
             <Dashboard path="/dashboard" />
             <CodeDisplay path="/code" />
           </Router>
         <Footer />
     </div>
-   
-   
   );
 }
 

@@ -1,0 +1,14 @@
+h1 {
+    text-align: center;
+}
+
+.add-students-header p {
+    text-align: center;
+}
+
+.add-students-button-display {
+    display: flex;
+    justify-content: center;
+    align-content: center; 
+}
+

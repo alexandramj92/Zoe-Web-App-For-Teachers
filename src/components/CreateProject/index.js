@@ -67,7 +67,7 @@ export default function MultilineTextFields() {
         </Grid>
         <Grid item xs={12} sm={4}></Grid>
         <Grid item xs={12} sm={4}>
-          <Button variant="contained" id="next">Next</Button>
+          <Link to='/addstudents'><Button variant="contained" id="next">Next</Button></Link>
         </Grid>
       </Grid>
 
