@@ -1,0 +1,31 @@
+.project-card {
+    padding-left: 10px;
+    background-color: #fafafa;
+    width: 400px;
+    border-radius: 20px;
+    border: 1px solid #cbcbcb;
+    margin: 20px;
+}
+
+.project-card h4 {
+    display: inline-flex;
+    margin: 5px;
+    line-height: 1em;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+}
+
+.project-card p {
+    color: grey;
+    margin-top: 5px;
+    padding-left: 10px;
+    letter-spacing: 0.25em;
+}
+
+#delete-icon {
+    display: inline-flex;
+    margin-top: 20px;
+    margin-left: 5px;
+}

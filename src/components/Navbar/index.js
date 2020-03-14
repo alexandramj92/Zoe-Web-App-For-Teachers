@@ -6,6 +6,7 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+import { Link } from '@reach/router';
 
 require('./style.css');
 
@@ -22,7 +23,8 @@ const useStyles = makeStyles(theme => ({
 
 export default function DenseAppBar() {
   const classes = useStyles();
-  const logo = require('./ZOE-logo-navbar.png'); 
+  const logo = require('./ZOE-logo-navbar.png');
+  // Need to remove user constant to replace with props 
   const user = "Mr. Purple Rain";
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -44,9 +46,10 @@ export default function DenseAppBar() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar variant="dense">
-        <img src={logo}/>
+        <Link to="/"><img src={logo} alt="Learn Zoe"/></Link>
 
         <div className="profile">
+        {/* Change user constant to props.username */}
         <p> Welcome {user} 
         <AccountCircleIcon className="profile-icon" fontSize="large"/> 
         <ArrowDropDownIcon 
@@ -74,6 +77,7 @@ export default function DenseAppBar() {
                 open={open}
                 onClose={handleClose}
               >
+              {/* Need to add logout functionality */}
                 <MenuItem onClick={handleClose}>Logout</MenuItem>
               </Menu>
         </p>
