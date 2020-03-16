@@ -24,7 +24,7 @@ export default function FormDialog() {
   return (
     <div>
       <Button variant="none" onClick={handleClickOpen}>
-        <span id="student-btn"><AddCircleOutlineIcon /> <h2>Add Student</h2></span>
+        <AddStudentButton />
       </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Add Student</DialogTitle>

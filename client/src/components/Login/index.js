@@ -16,7 +16,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import { Link } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
-
+import { navigate } from '@reach/router';
 
 require('./login.css');
 
@@ -84,14 +84,14 @@ export default function SimpleCard() {
   
   const loginUser = submitObject => {
     console.log(submitObject)
+    navigate('/dashboard');
     // Axios call will go here, authenticating user input 
-    
   };
 
   // When form submits, username and password are stored in an object, then passed to login function as an argument
   const handleSubmit = event => {
     event.preventDefault();
- 
+    event.target.reset()
     const {username, password} = values;
     const objSubmit = {
       username,
@@ -187,7 +187,7 @@ export default function SimpleCard() {
         </Grid>
 
         <Grid container wrap="nowrap" id="but-div">
-        <Button id="login-but" variant="contained" type="submit">Connection</Button>
+          <Button id="login-but" variant="contained" type="submit">Connection</Button>
         </Grid>
 
         </form>

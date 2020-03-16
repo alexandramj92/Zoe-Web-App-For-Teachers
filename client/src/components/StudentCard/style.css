@@ -9,7 +9,7 @@
 
 .student-card h4 {
     display: inline-flex;
-    margin: 5px;
+    margin: 5px !important;
     line-height: 1em !important;
     align-items: center;
     justify-content: center;
