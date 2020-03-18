@@ -8,10 +8,16 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import AddStudentButton from '../AddStudentButton';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
+import { navigate } from '@reach/router';
+import API from '../../utils/API';
 require("./style.css");
 
 export default function FormDialog() {
   const [open, setOpen] = React.useState(false);
+  const [values, setValues] = React.useState({
+    firstName: '',
+    lastName: ''
+  });
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -20,6 +26,28 @@ export default function FormDialog() {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const handleChange = event => {
+    setValues({...values, [event.target.name]: event.target.value,});
+  };
+
+  const handleSave = event => {
+    event.preventDefualt();
+    setOpen(false);
+    
+    const { firstName, lastName } = values;
+      const studentData = {
+        firstName,
+        lastName
+      }
+
+      if (!studentData.firstName || !studentData.lastName) {
+        return;
+      }
+      API.saveStudent(studentData)
+        .then(navigate('/code'))
+        .catch(err => console.log(err));
+  }
 
   return (
     <div>
@@ -37,23 +65,25 @@ export default function FormDialog() {
             margin="dense"
             id="name"
             label="First Name"
-            type="firstName"
+            name="firstName"
             fullWidth
+            onChange={handleChange}
           />
             <TextField
             autoFocus
             margin="dense"
             id="name"
             label="Last Name"
-            type="lastName"
+            name="lastName"
             fullWidth
+            onChange={handleChange}
           />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleSave} color="primary">
           {/* Needs saving logic */}
             Save
           </Button>

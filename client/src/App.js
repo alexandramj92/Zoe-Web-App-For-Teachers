@@ -16,9 +16,9 @@ function App() {
         <Navbar />
           <Router>
             <Login path="/" />
-            <CreateProject path="/addproject" />
-            <AddStudents path="/addstudents" />
             <Dashboard path="/dashboard" />
+            <CreateProject path="/addproject" />
+            <AddStudents path="/addstudents/:projectName" />
             <CodeDisplay path="/code" />
           </Router>
         <Footer />
