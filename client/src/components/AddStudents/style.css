@@ -12,3 +12,7 @@ h1 {
     align-content: center; 
 }
 
+#next {
+    width: 200px !important;
+}
+

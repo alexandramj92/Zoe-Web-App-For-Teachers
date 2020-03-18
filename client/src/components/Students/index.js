@@ -6,9 +6,9 @@ require("../StudentCard/style.css");
 class Students extends Component {
     static defaultProps = {
         students: [
-            {id: 1, name: 'Marie Zapata', icon: '/images/badge-fish_3ante4nnas.png'},
-            {id: 2, name: 'Emilie Fonjallaz', icon: '/images/badge-fish_asia.png'},
-            {id: 3, name: 'Ghofran Atlassian', icon: '/images/badge-fish_basic.png'}
+            {id: 1, name: 'Marie Zapata', icon: './images/badge-fish_3antennas.png'},
+            {id: 2, name: 'Emilie Fonjallaz', icon: './images/badge-fish_asia.png'},
+            {id: 3, name: 'Ghofran Atlassian', icon: './images/badge-fish_basic.png'}
         ]
     }
     render() {
@@ -16,7 +16,7 @@ class Students extends Component {
         <div>
             <h2>Students</h2>
             {this.props.students.map((s) => (
-                <StudentCard key={s.id} name={s.name} icon={s.icon} />
+                <StudentCard key={s.id} src={s.icon} name={s.name}/>
             ))}
             <div className="add-student-modal">
                 <AddStudentModal />

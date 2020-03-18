@@ -2,3 +2,14 @@
     max-width: 400px;
     margin: 0 auto;
 }
+
+#add-students-button {
+    font-size: 1.5em !important;
+    letter-spacing: 0.1rem;
+    text-transform: initial;
+    width: 400px;
+}
+
+#add-student-icon {
+    padding: 5px;
+}
