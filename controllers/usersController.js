@@ -5,8 +5,8 @@ module.exports = {
     populate: function(req, res) {
       db.User
       .find()
-        // .populate("projects")
-        // .populate("students")
+        .populate("projects")
+        .populate("students")
         .then(dbUser => res.json(dbUser))
         .catch(err => res.status(422).json(err));
     }
