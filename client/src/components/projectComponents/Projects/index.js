@@ -3,20 +3,14 @@ import ProjectCard from '../ProjectCard';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import { Link } from '@reach/router';
 
-const Projects = () => {
-  const defaultProps = {
-    projects: [
-      { id: 1, name: 'Solar System', code: 'UBE3' },
-      { id: 2, name: 'VR Gardening Simulator', code: 'XV6Z' },
-      { id: 3, name: 'Nature Exploration', code: '7GRB' }
-    ]
-  };
+const Projects = (props) => {
+
 
   return (
     <div>
       <h2>Projects</h2>
-      {defaultProps.projects.map(p => (
-        <ProjectCard key={p.id} name={p.name} code={p.code} />
+      {props.projects.map(p => (
+        <ProjectCard key={p._id} value={p._id} name={p.projectName} code={p.projectCode} />
       ))}
       <div className="add-button">
         <AddCircleOutlineIcon id="add-project-icon" />

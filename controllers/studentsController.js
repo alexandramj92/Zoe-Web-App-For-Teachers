@@ -15,8 +15,12 @@ module.exports = {
     //     .catch(err => res.status(422).json(err));
     // },
     create: function(req, res) {
-      db.Student
-        .create(req.body)
+      const userId = req.body.userId;
+      const student = new db.Student(req.body);
+      console.log(userId);
+        db.Student
+        .create(student)
+        .then((_id) => db.User.findOneAndUpdate({"_id" : `${userId}`}, {$push: {students: _id}}, {new: true}))
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
     },

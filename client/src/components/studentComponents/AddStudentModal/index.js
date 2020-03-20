@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -10,9 +10,15 @@ import AddStudentButton from '../AddStudentButton';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import { navigate } from '@reach/router';
 import API from '../../../utils/API';
+import UserContext from '../../../context/user/userContext';
+
 require('./style.css');
 
 export default function FormDialog() {
+  const userContext = useContext(UserContext);
+  const { _id } = userContext;
+  
+
   const [open, setOpen] = React.useState(false);
   const [values, setValues] = React.useState({
     firstName: '',
@@ -32,20 +38,23 @@ export default function FormDialog() {
   };
 
   const handleSave = event => {
-    event.preventDefualt();
-    setOpen(false);
+    event.preventDefault();
+    const userId = _id;
+
 
     const { firstName, lastName } = values;
     const studentData = {
       firstName,
-      lastName
+      lastName,
+      userId
     };
+    console.log(studentData);
 
     if (!studentData.firstName || !studentData.lastName) {
       return;
     }
     API.saveStudent(studentData)
-      .then(navigate('/code'))
+      .then(setOpen(false))
       .catch(err => console.log(err));
   };
 

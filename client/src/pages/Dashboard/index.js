@@ -15,9 +15,10 @@ const Dashboard = () => {
 
   const getUserData = async username => {
     const res = await API.getAll();
-    res.filter(res[0].username === username);
-    setProjects(res.data.projects);
-    setStudents(res.data.students);
+    // console.log(res.data[0]);
+    // res.filter(res[0].username === username);
+    setProjects(res.data[0].projects);
+    setStudents(res.data[0].students);
   };
 
   useEffect(() => {
