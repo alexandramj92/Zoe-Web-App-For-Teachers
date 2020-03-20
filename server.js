@@ -1,5 +1,4 @@
 const express = require("express");
-
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
@@ -12,15 +11,19 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-// Add routes, both API and view
-app.use(routes);
+
 
 app.get('/api/hello', (req, res) => {
     res.send({ express: 'Hello From Express' });
   });
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/zoe-database");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/zoe-database")
+.then(() => console.log("db connected"))
+.catch(err => {"database error " + err});
+
+// Add routes, both API and view
+app.use(routes);
 
 // Start the API server
 app.listen(PORT, function() {
