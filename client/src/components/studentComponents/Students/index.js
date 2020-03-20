@@ -1,35 +1,39 @@
-import React from 'react';
+import React, {useState} from 'react';
 import StudentCard from '../StudentCard';
 import AddStudentModal from '../AddStudentModal';
+
 require('../StudentCard/style.css');
 
-const Students = () => {
-  const defaultProps = {
-    students: [
-      {
-        id: 1,
-        name: 'Marie Zapata',
-        icon: './images/badge-fish_3antennas.png'
-      },
-      { id: 2, name: 'Emilie Fonjallaz', icon: './images/badge-fish_asia.png' },
-      {
-        id: 3,
-        name: 'Ghofran Atlassian',
-        icon: './images/badge-fish_basic.png'
-      }
-    ]
+const Students = (props) => {
+  const [values, setValues] = useState([]);
+
+
+ const onClick = event => {
+    event.preventDefault();
+    console.log("clicked!");
+    console.log(event.target.value);
+    const valClicked = event.target.value;
+    setValues(valClicked);
+  
   };
+ 
+
+  
   return (
     <div>
       <h2>Students</h2>
-      {defaultProps.students.map(s => (
-        <StudentCard key={s.id} src={s.icon} name={s.name} />
+      {props.students.map(s => (
+        <StudentCard key={s._id} value={s._id} src={s.icon} firstName={s.firstName} lastName={s.lastName} onClick={onClick}>
+        </StudentCard>
       ))}
       <div className="add-student-modal">
         <AddStudentModal />
       </div>
+
     </div>
   );
+
+
 };
 
 export default Students;

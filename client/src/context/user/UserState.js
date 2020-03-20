@@ -7,6 +7,7 @@ import { GET_USER, IS_LOGGED_IN } from '../types';
 const UserState = props => {
   const initialState = {
     username: 'head-teacher-01',
+    _id: "5e72bfb42e7584057c0f5228",
     isLoggedIn: true
   };
 
@@ -26,6 +27,7 @@ const UserState = props => {
     <UserContext.Provider
       value={{
         username: state.username,
+        _id: state._id,
         isLoggedIn: state.isLoggedIn,
         getUser,
         logIn

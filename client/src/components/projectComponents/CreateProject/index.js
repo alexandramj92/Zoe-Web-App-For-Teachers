@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Container } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
@@ -6,7 +6,8 @@ import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import { Link, navigate } from '@reach/router';
-import API from '../../utils/API';
+import UserContext from '../../../context/user/userContext';
+import API from '../../../utils/API';
 
 require('./style.css');
 
@@ -20,10 +21,14 @@ const useStyles = makeStyles(theme => ({
   }));
 
 export default function MultilineTextFields() {
+    const userContext = useContext(UserContext);
+
+    const { _id, getUser } = userContext;
     const classes = useStyles();
     const [values, setValues] = React.useState({
-      name: '',
-      description: ''
+      projectName: '',
+      projectDescription: '',
+      projectCode: ''
     });
   
     const handleChange = event => {
@@ -33,21 +38,35 @@ export default function MultilineTextFields() {
     // When user clicks 'next', project name and description post to the db
     const handleSubmit = event => {
       event.preventDefault();
-      const { name, description } = values;
+      const { projectName, projectDescription } = values;
+
+      const userId = _id;
+
       const projectData = {
-        name,
-        description
+        projectName,
+        projectDescription,
+        userId
+        
       }
 
-      if (!projectData.name || !projectData.description) {
+      
+      
+      if (!projectData.projectName || !projectData.projectDescription) {
         return;
       }
+
+      // API.getUserId(userId)
+      console.log(projectData);
       API.saveProject(projectData)
-        .then(navigate(`/addstudents/${projectData.name}`))
+        .then(navigate(`/addstudents/${projectData.projectName}`))
         .catch(err => console.log(err));
+
+    
+
     }
 
   return (
+
       <Container id="heading" maxWidth="sm">
       <h1>Create a New Project</h1>
     <form className={classes.root} noValidate autoComplete="off">
@@ -58,7 +77,7 @@ export default function MultilineTextFields() {
         <Grid item xs={12}>
                 <Grid item xs={12}>
                   <TextField
-                  name="name"
+                  name="projectName"
                   id="filled-textarea"
                   placeholder="Project Name"
                   fullWidth
@@ -72,7 +91,7 @@ export default function MultilineTextFields() {
         <Grid item xs={12}>
                 <Grid item xs={12}>
                   <TextField
-                  name="description"
+                  name="projectDescription"
                   multiline
                   rows="6"
                   placeholder="Description"

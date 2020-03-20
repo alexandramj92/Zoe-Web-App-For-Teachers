@@ -3,7 +3,7 @@ import './App.css';
 import Navbar from './components/layouts/Navbar';
 import CodeDisplay from './components/projectComponents/CodeDisplay';
 import Footer from './components/layouts/Footer';
-import CreateProject from './components/CreateProject';
+import CreateProject from './components/projectComponents/CreateProject';
 import Login from './pages/Login';
 import { Router } from '@reach/router';
 import Dashboard from './pages/Dashboard';
