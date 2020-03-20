@@ -9,8 +9,8 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import AddStudentButton from '../AddStudentButton';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import { navigate } from '@reach/router';
-import API from '../../utils/API';
-require("./style.css");
+import API from '../../../utils/API';
+require('./style.css');
 
 export default function FormDialog() {
   const [open, setOpen] = React.useState(false);
@@ -28,33 +28,37 @@ export default function FormDialog() {
   };
 
   const handleChange = event => {
-    setValues({...values, [event.target.name]: event.target.value,});
+    setValues({ ...values, [event.target.name]: event.target.value });
   };
 
   const handleSave = event => {
     event.preventDefualt();
     setOpen(false);
-    
-    const { firstName, lastName } = values;
-      const studentData = {
-        firstName,
-        lastName
-      }
 
-      if (!studentData.firstName || !studentData.lastName) {
-        return;
-      }
-      API.saveStudent(studentData)
-        .then(navigate('/code'))
-        .catch(err => console.log(err));
-  }
+    const { firstName, lastName } = values;
+    const studentData = {
+      firstName,
+      lastName
+    };
+
+    if (!studentData.firstName || !studentData.lastName) {
+      return;
+    }
+    API.saveStudent(studentData)
+      .then(navigate('/code'))
+      .catch(err => console.log(err));
+  };
 
   return (
     <div>
       <Button variant="none" onClick={handleClickOpen}>
         <AddStudentButton />
       </Button>
-      <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="form-dialog-title"
+      >
         <DialogTitle id="form-dialog-title">Add Student</DialogTitle>
         <DialogContent>
           <DialogContentText>
@@ -69,7 +73,7 @@ export default function FormDialog() {
             fullWidth
             onChange={handleChange}
           />
-            <TextField
+          <TextField
             autoFocus
             margin="dense"
             id="name"
@@ -84,7 +88,7 @@ export default function FormDialog() {
             Cancel
           </Button>
           <Button onClick={handleSave} color="primary">
-          {/* Needs saving logic */}
+            {/* Needs saving logic */}
             Save
           </Button>
         </DialogActions>
