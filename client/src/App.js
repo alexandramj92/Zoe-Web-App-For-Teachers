@@ -1,29 +1,30 @@
 import React from 'react';
 import './App.css';
-import Navbar from './components/Navbar';
-import CodeDisplay from './components/CodeDisplay';
-import Footer from './components/Footer';
+import Navbar from './components/layouts/Navbar';
+import CodeDisplay from './components/projectComponents/CodeDisplay';
+import Footer from './components/layouts/Footer';
 import CreateProject from './components/CreateProject';
-import Login from './components/Login';
+import Login from './pages/Login';
 import { Router } from '@reach/router';
-import Dashboard from './components/Dashboard';
-import AddStudents from './components/AddStudents';
+import Dashboard from './pages/Dashboard';
+import AddStudents from './components/studentComponents/AddStudents';
 
+import UserState from './context/user/UserState';
 
-function App() {
+const App = () => {
   return (
-    <div>
-        <Navbar />
-          <Router>
-            <Login path="/" />
-            <Dashboard path="/dashboard" />
-            <CreateProject path="/addproject" />
-            <AddStudents path="/addstudents/:projectName" />
-            <CodeDisplay path="/code" />
-          </Router>
-        <Footer />
-    </div>
+    <UserState>
+      <Navbar />
+      <Router>
+        <Login path="/" />
+        <Dashboard path="/dashboard" />
+        <CreateProject path="/addproject" />
+        <AddStudents path="/addstudents/:projectName" />
+        <CodeDisplay path="/code" />
+      </Router>
+      <Footer />
+    </UserState>
   );
-}
+};
 
 export default App;
