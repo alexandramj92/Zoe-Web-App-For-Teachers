@@ -23,7 +23,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     getUserData(username);
-  });
+  }, []);
 
   return (
     <div>
