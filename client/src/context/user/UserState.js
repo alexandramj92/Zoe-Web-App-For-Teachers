@@ -7,7 +7,7 @@ import { GET_USER, IS_LOGGED_IN } from '../types';
 const UserState = props => {
   const initialState = {
     username: 'head-teacher-01',
-    _id: "5e72bfb42e7584057c0f5228",
+    _id: '5e79547bd0b2e16d87f6981a',
     isLoggedIn: true
   };
 

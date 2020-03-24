@@ -8,13 +8,9 @@ import API from '../../../utils/API';
 import UserContext from '../../../context/user/userContext';
 import Students from '../Students';
 
-
-
-
-
 require('./style.css');
 
-const AddStudents = (props) => {
+const AddStudents = props => {
   // const [students, setStudents] = useState([]);
   // const projectName = props.projectName;
 
@@ -24,8 +20,6 @@ const AddStudents = (props) => {
 
   const [students, setStudents] = useState([]);
 
-
-
   const getStudentData = async () => {
     const res = await API.getAll();
 
@@ -34,7 +28,6 @@ const AddStudents = (props) => {
 
     // console.log (res.data[0].projectName, "project in array");
     // console.log(projectName, "project in props");
-
 
     // for (let i = 0; i < res.data.length; i++){
 
@@ -46,21 +39,13 @@ const AddStudents = (props) => {
 
     //   }
     // }
-      
-
-    
-    
-
-   
 
     // console.log(res.data);
-
-  }
+  };
 
   useEffect(() => {
     getStudentData(username);
-  });
-
+  }, []);
 
   return (
     <Container>
@@ -69,10 +54,9 @@ const AddStudents = (props) => {
           <h1>Assign Students</h1>
           <p>To New Project</p>
 
-          <Students students={students} > </Students>
-
+          <Students students={students}> </Students>
         </div>
-      
+
         <div className="add-students-button-display">
           <Link to="/code">
             <Button variant="contained" id="next">
