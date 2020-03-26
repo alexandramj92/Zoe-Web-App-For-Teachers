@@ -3,7 +3,6 @@ import StudentCard from '../StudentCard';
 import { Link } from '@reach/router';
 import Button from '@material-ui/core/Button';
 import { Container } from '@material-ui/core';
-import AddStudentModal from '../AddStudentModal';
 import API from '../../../utils/API';
 import UserContext from '../../../context/user/userContext';
 import Students from '../Students';

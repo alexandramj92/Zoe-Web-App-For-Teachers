@@ -1,18 +1,18 @@
 h1 {
-    text-align: center;
+  text-align: center;
 }
 
 .add-students-header p {
-    text-align: center;
+  text-align: center;
 }
 
 .add-students-button-display {
-    display: flex;
-    justify-content: center;
-    align-content: center; 
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: 20px;
 }
 
 #next {
-    width: 200px !important;
+  width: 200px !important;
 }
-
