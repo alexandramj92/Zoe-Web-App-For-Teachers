@@ -20,7 +20,7 @@ ProjectSchema.methods.generateCode = function() {
   let uppercaseChar = "ABCDEFGHIJKLMNOPQRSTUVXYZ";
   let numericChar = "0123456789012345678956789";
   
-    console.log("Generate Password function is called");
+    console.log("Generate code function is called");
   
     let codelength = 6;
   

@@ -1,10 +1,12 @@
 const router = require("express").Router();
 const addStudentController = require("../../controllers/studentsController");
+const passport = require('passport');
+
 
 // Matches with "/api/addstudents"
 router.route("/")
 //   .get(addStudentController.findAll)
-  .post(addStudentController.create);
+  .post(passport.authenticate('jwt', {session: false}), addStudentController.create);
 
 // Matches with "/api/addstudents/:id"
 // router

@@ -1,9 +1,11 @@
 const router = require("express").Router();
 const usersController = require("../../controllers/usersController");
+const passport = require('passport');
+
 
 // Matches with "/api/dashboard"
 router.route("/")
-  .get(usersController.populate)
+  .get(passport.authenticate('jwt', {session: false}), usersController.populate)
 
 
 
