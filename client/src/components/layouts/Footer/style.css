@@ -1,11 +1,15 @@
 .copyright {
-    background-color: #19A67B!important;
-    color: white!important;
-    width: 100%;
-    font-size: 10px;
-    text-align: center;
+  background-color: #432e9e !important;
+  color: white !important;
+  width: 100%;
+  font-size: 10px;
+  text-align: center;
+}
+
+.copyright a {
+  color: #ffffff;
 }
 
 p {
-    margin-top: 25px;
+  margin-top: 25px;
 }

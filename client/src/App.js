@@ -10,6 +10,7 @@ import Dashboard from './pages/Dashboard';
 import AddStudents from './components/studentComponents/AddStudents';
 
 import UserState from './context/user/UserState';
+import './App.css';
 
 const App = () => {
   return (

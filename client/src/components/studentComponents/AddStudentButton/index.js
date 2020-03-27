@@ -6,8 +6,7 @@ require('./style.css');
 const AddStudentButton = () => {
   return (
     <div className="add-button" id="add-students-button">
-      <AddCircleOutlineIcon id="add-student-icon" />
-      <h3>Add Students</h3>
+      <h3>+ Add Students</h3>
     </div>
   );
 };

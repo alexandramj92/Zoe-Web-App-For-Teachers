@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -7,7 +7,6 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import AddStudentButton from '../AddStudentButton';
-import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import { navigate } from '@reach/router';
 import API from '../../../utils/API';
 import UserContext from '../../../context/user/userContext';
@@ -17,7 +16,6 @@ require('./style.css');
 export default function FormDialog() {
   const userContext = useContext(UserContext);
   const { _id } = userContext;
-  
 
   const [open, setOpen] = React.useState(false);
   const [values, setValues] = React.useState({
@@ -41,7 +39,6 @@ export default function FormDialog() {
     event.preventDefault();
     const userId = _id;
 
-
     const { firstName, lastName } = values;
     const studentData = {
       firstName,
@@ -61,7 +58,9 @@ export default function FormDialog() {
   return (
     <div>
       <Button variant="none" onClick={handleClickOpen}>
-        <AddStudentButton />
+        <div className="button-area">
+          <AddStudentButton />
+        </div>
       </Button>
       <Dialog
         open={open}

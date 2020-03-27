@@ -1,15 +1,22 @@
 .add-button {
-    max-width: 400px;
-    margin: 0 auto;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 #add-students-button {
-    font-size: 1.5em !important;
-    letter-spacing: 0.1rem;
-    text-transform: initial;
-    width: 400px;
+  font-size: 1.5em !important;
+  letter-spacing: 0.1rem;
+  text-transform: initial;
+  width: 400px;
 }
 
 #add-student-icon {
-    padding: 5px;
+  padding: 5px;
+}
+
+@media only screen and (max-width: 550px) {
+  .add-button {
+    max-width: 300px;
+    margin: 0 auto;
+  }
 }
