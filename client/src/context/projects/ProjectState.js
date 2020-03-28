@@ -6,7 +6,8 @@ import {
     GET_PROJECT,
     PROJECT_LOADED,
     SAVE_PROJECT,
-    PROJECT_ERROR
+    PROJECT_ERROR,
+    ACTIVE_PROJECT
 } from '../types';
 
 const ProjectState = props => {
@@ -14,7 +15,6 @@ const ProjectState = props => {
         projects: null,
         current: {
             projectName: null,
-            projectDescription: null,
             projectId: null,
             projectCode: null
         },
@@ -42,7 +42,7 @@ const ProjectState = props => {
         try {
             const res = await axios.post('/api/addproject', projectData, config);
             dispatch({ type: SAVE_PROJECT, payload: res.data})
-            loadProject(res.data)
+            loadProject(res.data.project)
         } catch (err) {
             dispatch({ type: PROJECT_ERROR, payload: err.response.message.msgBody})
         }
@@ -51,6 +51,21 @@ const ProjectState = props => {
     const loadProject = project => {
         dispatch({ type: PROJECT_LOADED, payload: project})
     }
+
+    // Set project to active
+    const activeProject = () => {
+        if (state.current) {
+          const pName = localStorage.getItem('projectName');
+          const pId = localStorage.getItem('projectId');
+          const pCode = localStorage.getItem('code');
+          dispatch({
+            type: ACTIVE_PROJECT,
+            payload: pName, pId, pCode
+          })
+        } else {
+          return state;
+        }
+      }
     return (
         <ProjectContext.Provider
             value={{
@@ -59,7 +74,8 @@ const ProjectState = props => {
                 error: state.error,
                 getProject,
                 loadProject,
-                saveProject
+                saveProject,
+                activeProject
             }}
         >
             {props.children}

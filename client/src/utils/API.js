@@ -19,7 +19,7 @@ export default {
   saveStudent: function(studentData) {
     return axios.post('/api/addstudent', studentData);
   },
-  addProjectStudents: function(studentData, projectId) {
+  addProjectStudents: function(projectId, studentData, ) {
     return axios.post('/api/addProjectStudents/' + projectId, studentData)
   },
   getProjectStudents: function(projectId) {

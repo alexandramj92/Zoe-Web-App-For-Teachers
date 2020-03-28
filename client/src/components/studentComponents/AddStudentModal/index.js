@@ -10,13 +10,18 @@ import AddStudentButton from '../AddStudentButton';
 import { navigate } from '@reach/router';
 import API from '../../../utils/API';
 import AuthContext from '../../../context/auth/authContext';
+import ProjectContext from '../../../context/projects/projectContext';
 
 require('./style.css');
 
 export default function FormDialog() {
   const authContext = useContext(AuthContext);
+  const projectContext = useContext(ProjectContext);
+
+  const { current, activeProject } = projectContext;
   const { loadUser } = authContext;
   useEffect(() => {
+    activeProject();
     loadUser();
   },[]);
 
@@ -40,7 +45,7 @@ export default function FormDialog() {
 
   const handleSave = event => {
     event.preventDefault();
-
+    const projectId = current.projectId
     const { firstName, lastName } = values;
     const studentData = {
       firstName,
@@ -51,7 +56,7 @@ export default function FormDialog() {
     if (!studentData.firstName || !studentData.lastName) {
       return;
     }
-    API.saveStudent(studentData)
+    API.addProjectStudents(projectId, studentData)
       .then(setOpen(false))
       .catch(err => console.log(err));
   };

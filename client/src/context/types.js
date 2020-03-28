@@ -10,3 +10,4 @@ export const PROJECT_LOADED = 'PROJECT_LOADED';
 export const GET_PROJECT = 'GET_PROJECT';
 export const SAVE_PROJECT = 'SAVE_PROJECT';
 export const PROJECT_ERROR = 'PROJECT_ERROR';
+export const ACTIVE_PROJECT = 'ACTIVE_PROJECT';

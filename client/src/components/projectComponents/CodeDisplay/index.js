@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import { Container } from '@material-ui/core';
+import ProjectContext from '../../../context/projects/projectContext';
 
 require('./codeDis.css');
 
@@ -12,9 +13,15 @@ const defaultProps = {
 };
 
 const DisplayCode = () => {
+  const projectContext = useContext(ProjectContext);
+  const { current, activeProject } = projectContext;
+
+  useEffect(() => {
+    activeProject();
+  },[]);
   // Needs props: generated code and project name
-  const projectCode = 'WK4KJ';
-  const projectName = 'Solar System';
+  const projectCode = current.projectCode
+  const projectName = current.projectName
   return (
     <Container id="container" maxWidth="sm">
       <h1>Project: {projectName}</h1>
