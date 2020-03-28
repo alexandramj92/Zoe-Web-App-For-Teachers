@@ -36,6 +36,15 @@ export default (state, action) => {
                 user: null,
                 error: action.payload
             };
+        case LOGOUT:
+            localStorage.removeItem('id');
+            localStorage.removeItem('user');
+            return {
+                ...state,
+                isAuthenticated: null,
+                loading: true,
+                user: null
+            }
         default:
             return state;
     }

@@ -50,9 +50,20 @@ const AuthState = props => {
           } catch (err) {
             dispatch({
               type: LOGIN_FAIL,
-              payload: err.response.data.msg
+              payload: err.response.data
             });
           }
+    }
+    // Register User
+    // Logout User
+    const logout = async () => {
+      try {
+        const res = await axios.get('api/logout')
+        dispatch({ type: LOGOUT, payload: res.data});
+      }
+      catch(err) {
+  
+      }
     }
 
     return (
@@ -63,7 +74,8 @@ const AuthState = props => {
           user: state.user,
           error: state.error,
           loadUser,
-          login
+          login,
+          logout
         }}
       >
         {props.children}

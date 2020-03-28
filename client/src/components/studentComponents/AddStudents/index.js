@@ -10,8 +10,6 @@ import Students from '../Students';
 require('./style.css');
 
 const AddStudents = props => {
-  // const [students, setStudents] = useState([]);
-  // const projectName = props.projectName;
 
   const authContext = useContext(AuthContext);
   const { id, loadUser } = authContext;
