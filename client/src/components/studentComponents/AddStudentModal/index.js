@@ -19,10 +19,11 @@ export default function FormDialog() {
   const projectContext = useContext(ProjectContext);
 
   const { current, activeProject } = projectContext;
-  const { loadUser } = authContext;
+  const { loadUser, activeUser } = authContext;
   useEffect(() => {
     activeProject();
     loadUser();
+    activeUser();
   },[]);
 
   const [open, setOpen] = React.useState(false);

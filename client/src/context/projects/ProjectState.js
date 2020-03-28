@@ -32,15 +32,10 @@ const ProjectState = props => {
             throw err
           }
     }
-
+    // Called when project is saved from Create Project component
     const saveProject = async (projectData) => {
-        const config = {
-            headers: {
-              'Content-Type': 'application/json'
-            }
-          };
         try {
-            const res = await axios.post('/api/addproject', projectData, config);
+            const res = await axios.post('/api/addproject', projectData);
             dispatch({ type: SAVE_PROJECT, payload: res.data})
             loadProject(res.data.project)
         } catch (err) {

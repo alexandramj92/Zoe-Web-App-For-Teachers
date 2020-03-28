@@ -2,7 +2,9 @@ import React, { useContext, useEffect } from 'react';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import { Container } from '@material-ui/core';
+import AuthContext from '../../../context/auth/authContext';
 import ProjectContext from '../../../context/projects/projectContext';
+import { Link } from '@reach/router';
 
 require('./codeDis.css');
 
@@ -13,15 +15,19 @@ const defaultProps = {
 };
 
 const DisplayCode = () => {
+  const authContext = useContext(AuthContext);
   const projectContext = useContext(ProjectContext);
   const { current, activeProject } = projectContext;
+  const { loadUser, activeUser } = authContext
 
   useEffect(() => {
     activeProject();
+    loadUser();
+    activeUser();
   },[]);
   // Needs props: generated code and project name
-  const projectCode = current.projectCode
-  const projectName = current.projectName
+  const projectCode = localStorage.getItem('projectCode')
+  const projectName = localStorage.getItem('projectName')
   return (
     <Container id="container" maxWidth="sm">
       <h1>Project: {projectName}</h1>
@@ -34,9 +40,11 @@ const DisplayCode = () => {
           Input this code in Zoe VR to connect to this project
         </p>
       </Box>
-      <Button id="back-to-project" variant="contained">
-        Back to Project
-      </Button>
+      <Link to="/dashboard">
+        <Button id="back-to-project" variant="contained">
+          Back to Dashboard
+        </Button>
+      </Link>
     </Container>
   );
 };
