@@ -6,17 +6,18 @@ import { Container } from '@material-ui/core';
 import API from '../../../utils/API';
 import AuthContext from '../../../context/auth/authContext';
 import Students from '../Students';
+import { ACTIVE_USER } from '../../../context/types';
 
 require('./style.css');
 
 const AddStudents = props => {
 
   const authContext = useContext(AuthContext);
-  const { id, loadUser } = authContext;
+  const { id, activeUser } = authContext;
   const [students, setStudents] = useState([]);
 
   useEffect(() => {
-    loadUser();
+    activeUser();
   },[]);
 
 

@@ -9,7 +9,7 @@ import AuthContext from '../../context/auth/authContext';
 const Dashboard = () => {
   const authContext = useContext(AuthContext);
 
-  const { user } = authContext;
+  const { user, activeUser, loadUser } = authContext;
 
   const [projects, setProjects] = useState([]);
   const [students, setStudents] = useState([]);
@@ -23,6 +23,8 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
+    loadUser();
+    activeUser();
     getUserData(user);
   }, []);
 

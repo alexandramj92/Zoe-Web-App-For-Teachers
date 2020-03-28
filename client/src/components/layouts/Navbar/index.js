@@ -8,6 +8,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { Link, navigate } from '@reach/router';
 import AuthContext from '../../../context/auth/authContext';
+import { ACTIVE_USER } from '../../../context/types';
 
 require('./style.css');
 
@@ -22,10 +23,11 @@ const useStyles = makeStyles(theme => ({
 
 export default function DenseAppBar() {
   const authContext = useContext(AuthContext);
-  const { isAuthenticated, logout, user, loadUser } = authContext;
+  const { isAuthenticated, logout, user, activeUser, loadUser } = authContext;
 
   useEffect(() => {
     loadUser();
+    activeUser();
   },[]);
 
   const classes = useStyles();
@@ -49,7 +51,7 @@ export default function DenseAppBar() {
 
   const onLogout = () => {
     logout();
-    navigate('/');
+    navigate('/login');
   }
 
   return (

@@ -22,9 +22,10 @@ const useStyles = makeStyles(theme => ({
 
 export default function MultilineTextFields() {
     const authContext = useContext(AuthContext);
-    const { id, loadUser } = authContext;
+    const { id, loadUser, activeUser } = authContext;
     useEffect(() => {
       loadUser();
+      activeUser();
     },[]);
 
     const classes = useStyles();

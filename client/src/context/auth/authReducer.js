@@ -3,7 +3,8 @@ import {
     AUTH_ERROR,
     LOGIN_SUCCESS,
     LOGIN_FAIL,
-    LOGOUT
+    LOGOUT,
+    ACTIVE_USER
 } from '../types';
 
 export default (state, action) => {
@@ -16,12 +17,19 @@ export default (state, action) => {
                 user: action.payload.username,
                 id: action.payload._id
             }
+        case ACTIVE_USER:
+            return {
+                ...state,
+                user: action.payload.username,
+                id: action.payload.userId
+            }
         case LOGIN_SUCCESS:
             localStorage.setItem('id', action.payload.user._id);
             localStorage.setItem('user', action.payload.user.username);
             return {
                 ...state,
-                ...action.payload,
+                user: action.payload.username,
+                id: action.payload._id,
                 isAuthenticated: true,
                 loading: false
             };

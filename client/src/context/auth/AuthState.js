@@ -4,6 +4,7 @@ import AuthContext from './authContext';
 import authReducer from './authReducer';
 import {
     USER_LOADED,
+    ACTIVE_USER,
     AUTH_ERROR,
     LOGIN_SUCCESS,
     LOGIN_FAIL,
@@ -33,6 +34,21 @@ const AuthState = props => {
             dispatch({ type: AUTH_ERROR });
         }
     }
+
+    // Active User
+    const activeUser = () => {
+      if (state.user) {
+        const username = localStorage.getItem('user');
+        const userId = localStorage.getItem('id');
+        dispatch({
+          type: ACTIVE_USER,
+          payload: username, userId
+        })
+      } else {
+        return state;
+      }
+    }
+
     // Login User
     const login = async formData => {
         const config = {
@@ -50,7 +66,7 @@ const AuthState = props => {
           } catch (err) {
             dispatch({
               type: LOGIN_FAIL,
-              payload: err.response.data
+              payload: err
             });
           }
     }
@@ -75,7 +91,8 @@ const AuthState = props => {
           error: state.error,
           loadUser,
           login,
-          logout
+          logout,
+          activeUser
         }}
       >
         {props.children}
