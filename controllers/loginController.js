@@ -6,6 +6,7 @@ const passportConfig = require('../passport');
 const signToken = userID  => {
     return JWT.sign({
         iss : "NoobCoder",
+        //must match key in passport.js
         sub : userID
     }, "NoobCoder", {expiresIn: "1h"});
 }

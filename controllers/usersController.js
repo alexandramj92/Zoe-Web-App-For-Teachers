@@ -15,7 +15,6 @@ module.exports = {
           }
 
         })
-        // .then(dbUser => res.json(dbUser))
-        // .catch(err => res.status(422).json(err));
+       
     }
   };
