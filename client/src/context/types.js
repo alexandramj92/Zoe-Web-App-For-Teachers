@@ -6,3 +6,7 @@ export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOGOUT = 'LOGOUT';
 export const AUTH_ERROR = 'AUTH_ERROR';
 export const ACTIVE_USER = 'ACTIVE_USER';
+export const PROJECT_LOADED = 'PROJECT_LOADED';
+export const GET_PROJECT = 'GET_PROJECT';
+export const SAVE_PROJECT = 'SAVE_PROJECT';
+export const PROJECT_ERROR = 'PROJECT_ERROR';

@@ -51,7 +51,7 @@ export default function DenseAppBar() {
 
   const onLogout = () => {
     logout();
-    navigate('/login');
+    navigate('/');
   }
 
   return (

@@ -11,7 +11,7 @@ export default {
     return axios.get('/api/projects/' + id);
   },
   deleteProject: function(id) {
-    return axios.delete('/api/projects/' + id);
+    return axios.delete('/api/deleteproject/' + id);
   },
   saveProject: function(projectData) {
     return axios.post('/api/addproject', projectData);
@@ -19,8 +19,11 @@ export default {
   saveStudent: function(studentData) {
     return axios.post('/api/addstudent', studentData);
   },
-  getProjectStudents: function() {
-      return axios.get('/api/getProjectStudents');
+  addProjectStudents: function(studentData, projectId) {
+    return axios.post('/api/addProjectStudents/' + projectId, studentData)
+  },
+  getProjectStudents: function(projectId) {
+      return axios.get('/api/getProjectStudents/' + projectId);
   },
   getAll: function(username) {
     return axios.get('/api/dashboard', username);

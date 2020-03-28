@@ -10,6 +10,7 @@ import Dashboard from './pages/Dashboard';
 import AddStudents from './components/studentComponents/AddStudents';
 
 import AuthState from './context/auth/AuthState';
+import ProjectState from './context/projects/ProjectState';
 
 import './App.css';
 
@@ -17,15 +18,17 @@ const App = () => {
 
   return (
     <AuthState>
-      <Navbar />
-      <Router>
-        <Login path="/" />
-        <Dashboard path="/dashboard" />
-        <CreateProject path="/addproject" />
-        <AddStudents path="/addstudents" />
-        <CodeDisplay path="/code" />
-      </Router>
-      <Footer />
+      <ProjectState>
+        <Navbar />
+        <Router>
+          <Login path="/" />
+          <Dashboard path="/dashboard" />
+          <CreateProject path="/addproject" />
+          <AddStudents path="/addstudents" />
+          <CodeDisplay path="/code" />
+        </Router>
+        <Footer />
+      </ProjectState>
     </AuthState>
   );
 };

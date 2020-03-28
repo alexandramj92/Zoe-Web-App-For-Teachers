@@ -8,6 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import { Link, navigate } from '@reach/router';
 import API from '../../../utils/API';
 import AuthContext from '../../../context/auth/authContext';
+import ProjectContext from '../../../context/projects/projectContext';
 
 require('./style.css');
 
@@ -22,6 +23,8 @@ const useStyles = makeStyles(theme => ({
 
 export default function MultilineTextFields() {
     const authContext = useContext(AuthContext);
+    const projectContext = useContext(ProjectContext);
+    const { getProject, saveProject } = projectContext;
     const { id, loadUser, activeUser } = authContext;
     useEffect(() => {
       loadUser();
@@ -53,8 +56,8 @@ export default function MultilineTextFields() {
       if (!projectData.projectName || !projectData.projectDescription) {
         return;
       }
-      console.log(projectData);
-      API.saveProject(projectData)
+
+      saveProject(projectData)
         .then(navigate('/addstudents'))
         .catch(err => console.log(err));
     }
