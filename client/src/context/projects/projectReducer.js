@@ -16,7 +16,7 @@ export default (state, action) => {
         case SAVE_PROJECT:
             localStorage.setItem('projectName', action.payload.projectName);
             localStorage.setItem('projectId', action.payload._id);
-            localStorage.setItem('code', action.payload.projectCode);
+            localStorage.setItem('projectCode', action.payload.projectCode);
             return {
                 ...state,
                 projects: [action.payload]

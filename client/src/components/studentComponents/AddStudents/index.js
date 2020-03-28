@@ -10,6 +10,12 @@ import Students from '../Students';
 require('./style.css');
 
 const AddStudents = () => {
+  const authContext = useContext(AuthContext);
+  const { id, loadUser, activeUser } = authContext;
+  useEffect(() => {
+    loadUser();
+    activeUser();
+  },[]);
   const [students, setStudents] = useState([])
   return (
     <Container>
