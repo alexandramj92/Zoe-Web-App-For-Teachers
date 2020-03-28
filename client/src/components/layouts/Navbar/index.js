@@ -19,8 +19,6 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-
-
 export default function DenseAppBar() {
   const classes = useStyles();
   const logo = require('./ZOE-logo-navbar.png');

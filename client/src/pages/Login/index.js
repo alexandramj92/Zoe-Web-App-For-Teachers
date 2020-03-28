@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -15,8 +15,10 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import { Link } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
-import axios from 'axios';
+
 import { navigate } from '@reach/router';
+
+import AuthContext from '../../context/auth/authContext';
 
 require('./login.css');
 
@@ -49,12 +51,12 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function SimpleCard() {
+  // Material UI State
   const classes = useStyles();
   const logo = require('./ZoeLogo_Round.png');
   const preventDefault = event => event.preventDefault();
 
   const [values, setValues] = React.useState({
-    username: '',
     amount: '',
     password: '',
     weight: '',
@@ -63,15 +65,28 @@ export default function SimpleCard() {
     checkedB: true
   });
 
+  // Login logic state
+  const authContext = useContext(AuthContext);
+  const { login, isAuthenticated } = authContext;
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/dashboard');
+    } 
+  }, [isAuthenticated]);
+
+  const [userData, setUserData] = useState({
+    username: '',
+    password: ''
+  })
+
+  const { username, password } = userData;
+
   const handleChecked = name => event => {
     setValues({ ...values, [name]: event.target.checked });
   };
 
-  const handleChange = prop => event => {
-    setValues({ ...values, [prop]: event.target.value });
-    console.log(event.target.value);
-  };
-
+  const onChange = e => setUserData({ ...userData, [e.target.name]: e.target.value });
   const handleClickShowPassword = () => {
     setValues({ ...values, showPassword: !values.showPassword });
   };
@@ -80,26 +95,17 @@ export default function SimpleCard() {
     event.preventDefault();
   };
 
-  const loginUser = submitObject => {
-    console.log(submitObject);
-    navigate('/dashboard');
-    // Axios call will go here, authenticating user input
-  };
-
   // When form submits, username and password are stored in an object, then passed to login function as an argument
   const handleSubmit = event => {
     event.preventDefault();
-    event.target.reset();
-    const { username, password } = values;
-    const objSubmit = {
-      username,
-      password
-    };
-
-    if (!objSubmit.username || !objSubmit.password) {
-      return;
+    if (username === '' || password === '') {
+      console.log('Invalid login')
+    } else {
+      login({
+        username,
+        password
+      });
     }
-    loginUser(objSubmit);
   };
 
   return (
@@ -128,9 +134,10 @@ export default function SimpleCard() {
                 >
                   <FilledInput
                     id="my-input"
+                    name="username"
                     aria-describedby="my-helper-text"
                     placeholder="School.ad@gmail.com"
-                    onChange={handleChange('username')}
+                    onChange={onChange}
                   />
                 </FormControl>
               </Grid>
@@ -148,8 +155,9 @@ export default function SimpleCard() {
                   <FilledInput
                     id="filled-adornment-password"
                     type={values.showPassword ? 'text' : 'password'}
-                    value={values.password}
-                    onChange={handleChange('password')}
+                    value={userData.password}
+                    onChange={onChange}
+                    name='password'
                     placeholder="password"
                     endAdornment={
                       <InputAdornment position="end">

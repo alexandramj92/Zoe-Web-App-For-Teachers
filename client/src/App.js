@@ -9,12 +9,14 @@ import { Router } from '@reach/router';
 import Dashboard from './pages/Dashboard';
 import AddStudents from './components/studentComponents/AddStudents';
 
-import UserState from './context/user/UserState';
+import AuthState from './context/auth/AuthState';
+
 import './App.css';
 
 const App = () => {
+
   return (
-    <UserState>
+    <AuthState>
       <Navbar />
       <Router>
         <Login path="/" />
@@ -24,7 +26,7 @@ const App = () => {
         <CodeDisplay path="/code" />
       </Router>
       <Footer />
-    </UserState>
+    </AuthState>
   );
 };
 
