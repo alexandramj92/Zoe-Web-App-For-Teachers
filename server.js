@@ -15,26 +15,13 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/zoe-database", {useNewUrlParser : true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/zoe-database", {useNewUrlParser : true, useUnifiedTopology: true, useFindAndModify: false})
 .then(() => console.log("db connected"))
 .catch(err => {"database error " + err});
 
 // Add routes, both API and view
 app.use(routes);
 
-//Test password hashing
-// const User = require('./models/User');
-// const userInput = {
-//   userName: 'noobcoder1234',
-//   password: 'testPass47'
-// }
-
-// const user = new User(userInput);
-// user.save((err, document) => {
-//   if(err)
-//     console.log(err);
-//   console.log('User in server', document);
-// })
 
 // Start the API server
 app.listen(PORT, function() {

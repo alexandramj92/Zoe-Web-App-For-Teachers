@@ -8,15 +8,11 @@ module.exports = {
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
     },
-    // findById: function(req, res) {
-    //   db.Student
-    //     .findById(req.params.id)
-    //     .then(dbModel => res.json(dbModel))
-    //     .catch(err => res.status(422).json(err));
-    // },
-    create: function(req, res) {
-      const student = new db.Student(req.body);
 
+    create: function(req, res) {
+      //creates a new student with the firstName and lastName passed through the req.body
+      const student = new db.Student(req.body);
+      //saves the new student and pushes it to the student array of the user logged in
       student.save(err => {
         if(err)
           res.status(500).json({message:{msgBody : "Error has occured", msgError: true}});
@@ -32,27 +28,30 @@ module.exports = {
         }
 
       })
-
-
-      // console.log(userId);
-      //   db.Student
-      //   .create(student)
-      //   .then((_id) => db.User.findOneAndUpdate({"_id" : `${userId}`}, {$push: {students: _id}}, {new: true}))
-      //   .then(dbModel => res.json(dbModel))
-      //   .catch(err => res.status(422).json(err));
     },
-    update: function(req, res) {
+
+    createbyProject: function(req, res) {
+      const student = new db.Student(req.body);
+      const targetProject = req.params.id;
+
       db.Student
-        .findOneAndUpdate({ _id: req.params.id }, req.body)
-        .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err));
+      //creates new student
+      .create(student)
+      //pushes new student into the specific project
+      .then(db.Project.findOneAndUpdate({"_id" : `${targetProject}`}, {$push: {students: `${student._id}`}}, function(err, student){
+        if(err) res.json(err);
+        else res.json('Successfully created student and added it to the project');
+
+      }))
+
     },
+
     remove: function(req, res) {
-      db.Student
-        .findById({ _id: req.params.id })
-        .then(dbModel => dbModel.remove())
-        .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err));
+      //deletes a student based on the student id in req.params
+      db.Student.findByIdAndRemove({_id: req.params.id}, function(err, student){
+        if(err) res.json(err);
+        else res.json('Successfully removed student');
+    });
     }
   };
   

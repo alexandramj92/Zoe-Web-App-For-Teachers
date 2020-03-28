@@ -4,14 +4,8 @@ const passport = require('passport');
 
 // Matches with "/api/addproject"
 router.route("/")
-//   .get(addProjectController.findAll)
+//creates a new project and adds it to the user logged in
   .post(passport.authenticate('jwt', {session: false}), addProjectController.create);
 
-// Matches with "/api/addproject/:id"
-// router
-//   .route("/:id")
-//   .get(addProjectController.findById)
-//   .put(addProjectController.update)
-//   .delete(addProjectController.remove);
 
 module.exports = router;
