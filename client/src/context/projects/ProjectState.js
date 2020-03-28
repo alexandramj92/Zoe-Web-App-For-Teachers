@@ -32,7 +32,7 @@ const ProjectState = props => {
             throw err
           }
     }
-
+    // Called when project is saved from Create Project component
     const saveProject = async (projectData) => {
         try {
             const res = await axios.post('/api/addproject', projectData);
