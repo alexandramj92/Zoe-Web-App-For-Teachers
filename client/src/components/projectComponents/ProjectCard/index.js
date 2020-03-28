@@ -12,8 +12,9 @@ const ProjectCard = (props) => {
     const { id } = project;
 
     const onDelete = () => {
+        // needs api route built on backend
         console.log(id);
-        // needs axios call to work, currently the API.deleteProject does nothing?
+        API.deleteProject(id)
       };
 
         return (

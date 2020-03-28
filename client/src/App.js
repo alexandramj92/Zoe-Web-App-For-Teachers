@@ -22,7 +22,7 @@ const App = () => {
         <Login path="/" />
         <Dashboard path="/dashboard" />
         <CreateProject path="/addproject" />
-        <AddStudents path="/addstudents/:projectName" />
+        <AddStudents path="/addstudents" />
         <CodeDisplay path="/code" />
       </Router>
       <Footer />

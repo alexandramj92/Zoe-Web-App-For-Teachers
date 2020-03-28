@@ -55,7 +55,7 @@ export default function MultilineTextFields() {
       }
       console.log(projectData);
       API.saveProject(projectData)
-        .then(navigate(`/addstudents/${projectData.projectName}`))
+        .then(navigate('/addstudents'))
         .catch(err => console.log(err));
     }
 
