@@ -3,26 +3,29 @@ import Students from '../../components/studentComponents/Students';
 import Projects from '../../components/projectComponents/Projects';
 import './dashboard.css';
 import API from '../../utils/API';
-import UserContext from '../../context/user/userContext';
+
+import AuthContext from '../../context/auth/authContext';
 
 const Dashboard = () => {
-  const userContext = useContext(UserContext);
+  const authContext = useContext(AuthContext);
 
-  const { username, getUser } = userContext;
+  const { user, activeUser, loadUser } = authContext;
 
   const [projects, setProjects] = useState([]);
   const [students, setStudents] = useState([]);
 
-  const getUserData = async username => {
+  const getUserData = async user => {
     const res = await API.getAll();
-    // console.log(res.data[0]);
+    console.log(res.data);
     // res.filter(res[0].username === username);
-    setProjects(res.data[0].projects);
-    setStudents(res.data[0].students);
+    setProjects(res.data.projects);
+    setStudents(res.data.students);
   };
 
   useEffect(() => {
-    getUserData(username);
+    loadUser();
+    activeUser();
+    getUserData(user);
   }, []);
 
   return (

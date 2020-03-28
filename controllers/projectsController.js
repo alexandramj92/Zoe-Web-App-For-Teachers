@@ -22,6 +22,7 @@ module.exports = {
         if(err)
           res.status(500).json({message:{msgBody : "Error has occured", msgError: true}});
         else {
+          res.json(project);
           req.user.projects.push(project);
           req.user.save(err => {
             if(err) 

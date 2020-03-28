@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -9,13 +9,21 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import AddStudentButton from '../AddStudentButton';
 import { navigate } from '@reach/router';
 import API from '../../../utils/API';
-import UserContext from '../../../context/user/userContext';
+import AuthContext from '../../../context/auth/authContext';
+import ProjectContext from '../../../context/projects/projectContext';
 
 require('./style.css');
 
 export default function FormDialog() {
-  const userContext = useContext(UserContext);
-  const { _id } = userContext;
+  const authContext = useContext(AuthContext);
+  const projectContext = useContext(ProjectContext);
+
+  const { current, activeProject } = projectContext;
+  const { loadUser } = authContext;
+  useEffect(() => {
+    activeProject();
+    loadUser();
+  },[]);
 
   const [open, setOpen] = React.useState(false);
   const [values, setValues] = React.useState({
@@ -37,20 +45,18 @@ export default function FormDialog() {
 
   const handleSave = event => {
     event.preventDefault();
-    const userId = _id;
-
+    const projectId = current.projectId
     const { firstName, lastName } = values;
     const studentData = {
       firstName,
-      lastName,
-      userId
+      lastName
     };
     console.log(studentData);
 
     if (!studentData.firstName || !studentData.lastName) {
       return;
     }
-    API.saveStudent(studentData)
+    API.addProjectStudents(projectId, studentData)
       .then(setOpen(false))
       .catch(err => console.log(err));
   };
@@ -96,7 +102,6 @@ export default function FormDialog() {
             Cancel
           </Button>
           <Button onClick={handleSave} color="primary">
-            {/* Needs saving logic */}
             Save
           </Button>
         </DialogActions>

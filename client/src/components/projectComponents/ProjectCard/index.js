@@ -4,18 +4,23 @@ import './style.css';
 import API from '../../../utils/API';
 
 const ProjectCard = (props) => {
+    const [project, setProject]=useState({
+        project: props.name,
+        id: props.id
+    })
 
-    // const [projectId, setProjectId] = useState([]);
+    const { id } = project;
 
-    const deleteProject = (projectId) => {
-      API.deleteProject(projectId); 
+    const onDelete = () => {
+        // needs api route built on backend
+        console.log(id);
+        API.deleteProject(id)
       };
 
         return (
-            <div className='project-card' value={props.value} >
-                <DeleteOutlineIcon id='delete-icon' value={props.value} onClick={() => deleteProject(props.value)} />
-
-
+            <div className='project-card'>
+                <DeleteOutlineIcon id='delete-icon' 
+                    onClick={onDelete} />
                 <h4>{props.name}</h4>
                 <p>{props.code}</p>
             </div>

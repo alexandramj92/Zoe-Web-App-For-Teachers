@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -6,7 +6,9 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import { Link } from '@reach/router';
+import { Link, navigate } from '@reach/router';
+import AuthContext from '../../../context/auth/authContext';
+import { ACTIVE_USER } from '../../../context/types';
 
 require('./style.css');
 
@@ -19,13 +21,18 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-
-
 export default function DenseAppBar() {
+  const authContext = useContext(AuthContext);
+  const { isAuthenticated, logout, user, activeUser, loadUser } = authContext;
+
+  useEffect(() => {
+    loadUser();
+    activeUser();
+  },[]);
+
   const classes = useStyles();
   const logo = require('./ZOE-logo-navbar.png');
-  // Need to remove user constant to replace with props 
-  const user = "Mr. Purple Rain";
+
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -42,6 +49,11 @@ export default function DenseAppBar() {
     setAnchorEl(null);
   };
 
+  const onLogout = () => {
+    logout();
+    navigate('/');
+  }
+
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -49,8 +61,7 @@ export default function DenseAppBar() {
         <Link to="/"><img src={logo} alt="Learn Zoe"/></Link>
 
         <div className="profile">
-        {/* Change user constant to props.username */}
-        <p> Welcome {user} 
+        {isAuthenticated ? <p> Welcome {user}
         <AccountCircleIcon className="profile-icon" fontSize="large"/> 
         <ArrowDropDownIcon 
         className="profile-icon" 
@@ -78,9 +89,10 @@ export default function DenseAppBar() {
                 onClose={handleClose}
               >
               {/* Need to add logout functionality */}
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                <MenuItem onClick={onLogout}>Logout</MenuItem>
               </Menu>
-        </p>
+        </p> : <p>Please log in.</p>}
+        
         </div>
 
         

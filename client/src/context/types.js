@@ -1,2 +1,13 @@
 export const GET_USER = 'GET_USER';
 export const IS_LOGGED_IN = 'IS_LOGGED_IN';
+export const USER_LOADED = 'USER_LOADEd';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_FAIL = 'LOGIN_FAIL';
+export const LOGOUT = 'LOGOUT';
+export const AUTH_ERROR = 'AUTH_ERROR';
+export const ACTIVE_USER = 'ACTIVE_USER';
+export const PROJECT_LOADED = 'PROJECT_LOADED';
+export const GET_PROJECT = 'GET_PROJECT';
+export const SAVE_PROJECT = 'SAVE_PROJECT';
+export const PROJECT_ERROR = 'PROJECT_ERROR';
+export const ACTIVE_PROJECT = 'ACTIVE_PROJECT';
