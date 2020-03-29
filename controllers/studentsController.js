@@ -41,7 +41,7 @@ module.exports = {
       .create(student)
       //pushes new student into the specific project
       .then(db.Project.findOneAndUpdate({"_id" : `${targetProject}`}, {$push: {students: `${student._id}`}}, function(err, student){
-        if(err) res.json(err);
+        if(err) console.log(err);
         else res.json('Successfully created student and added it to the project');
 
       }))

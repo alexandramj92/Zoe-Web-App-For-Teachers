@@ -24,7 +24,7 @@ const DisplayCode = () => {
     activeProject();
     activeUser();
   },[]);
-  // Needs props: generated code and project name
+  // Dynamically render project name and code
   const projectCode = localStorage.getItem('projectCode')
   const projectName = localStorage.getItem('projectName')
   return (
@@ -39,6 +39,7 @@ const DisplayCode = () => {
           Input this code in Zoe VR to connect to this project
         </p>
       </Box>
+  {/* Needs link fixed so that user state is maintained when routed to dashboard */}
       <Link to="/dashboard">
         <Button id="back-to-project" variant="contained">
           Back to Dashboard

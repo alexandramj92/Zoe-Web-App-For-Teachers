@@ -42,7 +42,7 @@ const AuthState = props => {
         const userId = localStorage.getItem('id');
         dispatch({
           type: ACTIVE_USER,
-          payload: username, userId
+          payload: {username, userId}
         })
       } else {
         return state;
@@ -78,7 +78,10 @@ const AuthState = props => {
         dispatch({ type: LOGOUT, payload: res.data});
       }
       catch(err) {
-  
+        dispatch({
+          type: LOGIN_FAIL,
+          payload: err
+        })
       }
     }
 
