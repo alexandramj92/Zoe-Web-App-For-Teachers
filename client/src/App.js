@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './App.css';
 import Navbar from './components/layouts/Navbar';
 import CodeDisplay from './components/projectComponents/CodeDisplay';
@@ -7,11 +7,11 @@ import CreateProject from './components/projectComponents/CreateProject';
 import Login from './pages/Login';
 import { Router, Redirect } from '@reach/router';
 import Dashboard from './pages/Dashboard';
-import AddStudents from './components/studentComponents/AddStudents';
 import ProjectStudents from './components/studentComponents/ProjectStudents';
 
-import AuthState from './context/auth/AuthState';
+// import AuthState from './context/auth/AuthState';
 import ProjectState from './context/projects/ProjectState';
+import AuthContext from './context/auth/authContext';
 
 import './App.css';
 
@@ -25,24 +25,23 @@ import './App.css';
 // }
 
 const App = (props) => {
-   const isAuthenticated = true;
+   const authContext = useContext(AuthContext);
+   const { isAuthenticated } = authContext;
 
   return (
-    <AuthState>
+    
       <ProjectState>
         <Navbar />
         <Router>
           <Login path="/" />
-         {/* <AuthRoute isAuthenticated={isAuthenticated} Component={Dashboard} path='/dashboard' /> */}
-          <Dashboard path="/dashboard" />
-          <CreateProject path="/addproject" />
-          {/* <AddStudents path="/addstudents" /> */}
-          <ProjectStudents path="/projectStudents" />
-          <CodeDisplay path="/code" />
+          {isAuthenticated ? <Dashboard path="/dashboard" /> : <Redirect noThrow from="/dashboard" to="/" />}
+          {isAuthenticated ? <CreateProject path="/addproject" /> : <Redirect noThrow from="/addproject" to="/" />}
+          {isAuthenticated ? <ProjectStudents path="/projectStudents" /> : <Redirect noThrow from="/projectStudents" to="/" />}
+          {isAuthenticated ? <CodeDisplay path="/code" /> : <Redirect noThrow from="/code" to="/" />}
         </Router>
         <Footer />
       </ProjectState>
-    </AuthState>
+
   );
 };
 
