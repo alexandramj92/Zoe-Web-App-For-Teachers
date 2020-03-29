@@ -9,7 +9,7 @@ module.exports = {
         .populate("students")
         .exec((err, document) => {
           if(err)
-            res.status(500).json({message:{msgBody : "Error has occured", msgError: true}});
+            res.status(500).json(console.log(err));
           else {
             res.status(200).json({projects : document.projects, students: document.students, authenticated : true})
           }

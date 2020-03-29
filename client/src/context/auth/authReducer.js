@@ -28,8 +28,8 @@ export default (state, action) => {
             localStorage.setItem('user', action.payload.user.username);
             return {
                 ...state,
-                user: action.payload.username,
-                id: action.payload._id,
+                user: action.payload.user.username,
+                id: action.payload.user._id,
                 isAuthenticated: true,
                 loading: false
             };
