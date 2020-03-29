@@ -33,6 +33,8 @@ module.exports = {
     createbyProject: function(req, res) {
       const student = new db.Student(req.body);
       const targetProject = req.params.id;
+      console.log(targetProject, "Target Project id!");
+      console.log(req.body, "Student data!");
 
       db.Student
       //creates new student

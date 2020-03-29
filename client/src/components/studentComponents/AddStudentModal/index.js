@@ -7,14 +7,13 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import AddStudentButton from '../AddStudentButton';
-import { navigate } from '@reach/router';
 import API from '../../../utils/API';
 import AuthContext from '../../../context/auth/authContext';
 import ProjectContext from '../../../context/projects/projectContext';
 
 require('./style.css');
 
-export default function FormDialog() {
+export default function FormDialog(props) {
   const authContext = useContext(AuthContext);
   const projectContext = useContext(ProjectContext);
 
@@ -22,7 +21,6 @@ export default function FormDialog() {
   const { loadUser, activeUser } = authContext;
   useEffect(() => {
     activeProject();
-    loadUser();
     activeUser();
   },[]);
 
@@ -46,13 +44,14 @@ export default function FormDialog() {
 
   const handleSave = event => {
     event.preventDefault();
-    const projectId = current.projectId
+    const projectId = localStorage.getItem('projectId');
     const { firstName, lastName } = values;
     const studentData = {
       firstName,
       lastName
     };
-    console.log(studentData);
+    console.log(studentData, "student data from student modal!");
+    console.log(projectId);
 
     if (!studentData.firstName || !studentData.lastName) {
       return;

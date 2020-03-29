@@ -26,7 +26,6 @@ export default function MultilineTextFields() {
     const { saveProject } = projectContext;
     const { id, loadUser, activeUser } = authContext;
     useEffect(() => {
-      loadUser();
       activeUser();
     },[]);
 
@@ -57,7 +56,7 @@ export default function MultilineTextFields() {
       }
 
       saveProject(projectData)
-        .then(navigate('/addstudents'))
+        .then(navigate('/projectStudents'))
         .catch(err => console.log(err));
     }
 

@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import { Router } from '@reach/router';
 import Dashboard from './pages/Dashboard';
 import AddStudents from './components/studentComponents/AddStudents';
+import ProjectStudents from './components/studentComponents/ProjectStudents';
 
 import AuthState from './context/auth/AuthState';
 import ProjectState from './context/projects/ProjectState';
@@ -24,7 +25,8 @@ const App = () => {
           <Login path="/" />
           <Dashboard path="/dashboard" />
           <CreateProject path="/addproject" />
-          <AddStudents path="/addstudents" />
+          {/* <AddStudents path="/addstudents" /> */}
+          <ProjectStudents path="/projectStudents" />
           <CodeDisplay path="/code" />
         </Router>
         <Footer />
