@@ -8,28 +8,18 @@ import Login from './pages/Login';
 import { Router, Redirect } from '@reach/router';
 import Dashboard from './pages/Dashboard';
 import ProjectStudents from './components/studentComponents/ProjectStudents';
+import NotFound from './pages/NotFound/NotFound';
 
-// import AuthState from './context/auth/AuthState';
 import ProjectState from './context/projects/ProjectState';
 import AuthContext from './context/auth/authContext';
 
 import './App.css';
-
-// const AuthRoute = ({isAuthenticated, Component, path}) => {
-//   axios.get('/isAuthenticated').then(isAuthenticated => {
-//     if(isAuthenticated)
-//     return <Component path={path} />
-//   return <Redirect noThrow from={path} to="/" />
-//   })
-  
-// }
 
 const App = (props) => {
    const authContext = useContext(AuthContext);
    const { isAuthenticated } = authContext;
 
   return (
-    
       <ProjectState>
         <Navbar />
         <Router>
@@ -38,10 +28,10 @@ const App = (props) => {
           {isAuthenticated ? <CreateProject path="/addproject" /> : <Redirect noThrow from="/addproject" to="/" />}
           {isAuthenticated ? <ProjectStudents path="/projectStudents" /> : <Redirect noThrow from="/projectStudents" to="/" />}
           {isAuthenticated ? <CodeDisplay path="/code" /> : <Redirect noThrow from="/code" to="/" />}
+          <NotFound default />
         </Router>
         <Footer />
       </ProjectState>
-
   );
 };
 
