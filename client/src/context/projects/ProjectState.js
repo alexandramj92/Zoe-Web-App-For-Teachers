@@ -29,13 +29,19 @@ const ProjectState = props => {
             const res = await axios.get('/api/dashboard');
             dispatch({ type: GET_PROJECT, payload: res.data.projects });
           } catch (err) {
-            throw err
+            console.log(err)
           }
     }
     // Called when project is saved from Create Project component
     const saveProject = async (projectData) => {
+        const config = {
+            headers: {
+              'Content-Type': 'application/json',
+                "alg": "HS256",
+                "typ": "JWT"
+        }}
         try {
-            const res = await axios.post('/api/addproject', projectData);
+            const res = await axios.post('/api/addproject', projectData, config);
             dispatch({ type: SAVE_PROJECT, payload: res.data})
             loadProject(res.data.project)
         } catch (err) {
