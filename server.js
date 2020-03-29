@@ -15,7 +15,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/zoe-database", {useNewUrlParser : true, useUnifiedTopology: true, useFindAndModify: false})
+mongoose.connect(process.env.MONGODB_URI || "mongodb://zoeuser:learnzoe1@ds059651.mlab.com:59651/heroku_fqfrwj2v", {useNewUrlParser : true, useUnifiedTopology: true, useFindAndModify: false})
 .then(() => console.log("db connected"))
 .catch(err => {"database error " + err});
 
