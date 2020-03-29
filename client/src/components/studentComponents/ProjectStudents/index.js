@@ -7,6 +7,8 @@ import { Container } from '@material-ui/core';
 import { Link } from '@reach/router';
 
 import AddStudentModal from '../AddStudentModal';
+import StudentCard from '../StudentCard';
+
 import './style.css';
 import API from '../../../utils/API';
 
@@ -36,33 +38,47 @@ const ProjectStudents = () => {
     setStudents(res.data[0].students);
   };
 
+  const onClick = event => {
+    event.preventDefault();
+  };
+
   useEffect(() => {
     loadUser(true);
-    activeProject();
-    // getStudentData(projectId);
-  }, []);
+    // activeProject();
+    getStudentData(projectId);
+  }, [students]);
 
   return (
     <Container>
-      <div className="add-students-display">
-        <div className="add-students-header">
-          <h1>Assign Students</h1>
-          <p>To New Project</p>
-
-          <ProjectStudentsDisplay students={students} ></ProjectStudentsDisplay>
-          <AddStudentModal onClick= {getStudentData}></AddStudentModal>
-        </div>
-
-        <div className="add-students-button-display">
+    <div className="add-students-display">
+      <div className="add-students-header">
+       <h1>Assign Students</h1>
+        <p>To New Project</p>
+      {students.map(s => (
+        <StudentCard
+          key={s._id}
+          value={s._id}
+          src={s.icon}
+          firstName={s.firstName}
+          lastName={s.lastName}
+          onClick={onClick}
+        ></StudentCard>
+      ))}
+      <div className="add-student-modal">
+        <AddStudentModal />
+      </div>
+      <div className="add-students-button-display">
           <Link to="/code">
             <Button variant="contained" id="next">
               Finish
             </Button>
           </Link>
-        </div>
+      </div>
+      </div>
       </div>
     </Container>
   );
 };
+
 
 export default ProjectStudents;

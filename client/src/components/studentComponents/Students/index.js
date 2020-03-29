@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import StudentCard from '../StudentCard';
-import AddStudentModal from '../AddStudentModal';
+import AddStudentModalDash from '../AddStudentModalDash';
 import AuthContext from '../../../context/auth/authContext';
 import ProjectContext from '../../../context/projects/projectContext';
 import './style.css';
@@ -14,7 +14,7 @@ const Students = props => {
   const { id, loadUser, activeUser } = authContext;
 
   useEffect(() => {
-    activeUser();
+    loadUser(true);
   },[]);
 
   const [student, setStudent] = useState({
@@ -41,7 +41,7 @@ const Students = props => {
         ></StudentCard>
       ))}
       <div className="add-student-modal">
-        <AddStudentModal />
+        <AddStudentModalDash />
       </div>
     </div>
   );
