@@ -25,7 +25,7 @@ const Dashboard = () => {
   useEffect(() => {
     loadUser(true);
     getUserData(user);
-  }, []);
+  }, [students]);
 
   return (
     <div>
