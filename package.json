@@ -2,6 +2,10 @@
   "name": "mern",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "npm": "5.7.1",
+    "node": "9.5.0"
+  },
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
