@@ -20,8 +20,8 @@ export default function FormDialog(props) {
   const { current, activeProject } = projectContext;
   const { loadUser, activeUser } = authContext;
   useEffect(() => {
+    loadUser(true);
     activeProject();
-    activeUser();
   },[]);
 
   const [open, setOpen] = React.useState(false);
@@ -42,9 +42,10 @@ export default function FormDialog(props) {
     setValues({ ...values, [event.target.name]: event.target.value });
   };
 
+  const projectId = localStorage.getItem('projectId');
+
   const handleSave = event => {
     event.preventDefault();
-    const projectId = localStorage.getItem('projectId');
     const { firstName, lastName } = values;
     const studentData = {
       firstName,

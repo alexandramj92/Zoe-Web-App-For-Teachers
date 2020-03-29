@@ -19,22 +19,19 @@ module.exports = {
       project.generateCode();
       
       project.save(err => {
-        if(err)
-          res.status(500).json({message:{msgBody : "Error has occured", msgError: true}});
+        if(err) {
+          return res.status(500).json({message:{msgBody : "Error has occured", msgError: true}});
+        }
         else {
-          res.json(project);
           req.user.projects.push(project);
           req.user.save(err => {
             if(err) 
-              res.status(500).json({message:{msgBody : "Error has occured", msgError: true}});
+              return res.status(500).json({message:{msgBody : "Error has occured", msgError: true}});
             else 
-              res.status(200).json({message: {msgBody : "Successfully created project", msgError: false}});
-            
+              return res.status(200).json(project);
           })
         }
-
       })
-      
         },
   
     

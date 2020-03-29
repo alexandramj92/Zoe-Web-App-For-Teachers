@@ -1,8 +1,7 @@
 {
   "name": "zoe-project",
   "version": "0.1.0",
-  "private": true,
-  "proxy": "http://localhost:3001/",  
+  "private": true, 
   "dependencies": {
     "@material-ui/core": "^4.9.5",
     "@material-ui/icons": "^4.9.1",
@@ -41,6 +40,7 @@
       "last 1 safari version"
     ]
   },
+  "proxy": "http://localhost:3001/", 
   "devDependencies": {
     "body-parser": "^1.19.0",
     "concurrently": "^4.1.0",

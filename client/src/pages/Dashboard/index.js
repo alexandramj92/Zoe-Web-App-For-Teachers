@@ -23,7 +23,7 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    activeUser();
+    loadUser(true);
     getUserData(user);
   }, []);
 

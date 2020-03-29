@@ -26,7 +26,7 @@ export default function MultilineTextFields() {
     const { saveProject } = projectContext;
     const { id, loadUser, activeUser } = authContext;
     useEffect(() => {
-      activeUser();
+      loadUser(true);
     },[]);
 
     const classes = useStyles();

@@ -25,8 +25,10 @@ const ProjectStudents = () => {
 
   const [students, setStudents] = useState([]);
 
-  const getStudentData = async () => {
-    const projectId = localStorage.getItem('projectId');
+  const projectId = localStorage.getItem('projectId');
+  console.log(projectId);
+
+  const getStudentData = async projectId => {
 
     const res = await API.getProjectStudents(projectId);
     console.log(res.data[0].students);
@@ -35,10 +37,10 @@ const ProjectStudents = () => {
   };
 
   useEffect(() => {
-    activeUser();
+    loadUser(true);
     activeProject();
-    getStudentData();
-  }, [students]);
+    // getStudentData(projectId);
+  }, []);
 
   return (
     <Container>

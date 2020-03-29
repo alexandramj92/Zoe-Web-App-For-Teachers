@@ -21,8 +21,8 @@ const DisplayCode = () => {
   const { loadUser, activeUser } = authContext
 
   useEffect(() => {
+    loadUser(true);
     activeProject();
-    activeUser();
   },[]);
   // Dynamically render project name and code
   const projectCode = localStorage.getItem('projectCode')
