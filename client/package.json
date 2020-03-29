@@ -1,7 +1,11 @@
 {
   "name": "zoe-project",
   "version": "0.1.0",
-  "private": true, 
+  "private": true,
+  "engines": {
+    "npm": "5.7.1",
+    "node": "9.5.0"
+  },
   "dependencies": {
     "@material-ui/core": "^4.9.5",
     "@material-ui/icons": "^4.9.1",
