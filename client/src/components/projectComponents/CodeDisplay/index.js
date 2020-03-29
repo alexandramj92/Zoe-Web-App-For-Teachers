@@ -22,7 +22,6 @@ const DisplayCode = () => {
 
   useEffect(() => {
     activeProject();
-    loadUser();
     activeUser();
   },[]);
   // Needs props: generated code and project name

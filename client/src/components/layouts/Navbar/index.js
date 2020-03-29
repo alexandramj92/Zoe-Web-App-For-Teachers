@@ -26,7 +26,6 @@ export default function DenseAppBar() {
   const { isAuthenticated, logout, user, activeUser, loadUser } = authContext;
 
   useEffect(() => {
-    loadUser();
     activeUser();
   },[]);
 
