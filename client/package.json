@@ -1,6 +1,9 @@
 {
   "name": "zoe-project",
   "version": "0.1.0",
+  "engines": {
+    "node": "10.16.x"
+  },
   "private": true, 
   "dependencies": {
     "@material-ui/core": "^4.9.5",
