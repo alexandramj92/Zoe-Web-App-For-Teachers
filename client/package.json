@@ -4,7 +4,7 @@
   "engines": {
     "node": "10.16.x"
   },
-  "private": true, 
+  "private": true,
   "dependencies": {
     "@material-ui/core": "^4.9.5",
     "@material-ui/icons": "^4.9.1",
@@ -14,7 +14,6 @@
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
     "express": "^4.17.1",
-    "heroku-postbuild": "npm run build",
     "if-env": "^1.0.4",
     "mongoose": "^5.3.16",
     "react": "^16.13.0",
@@ -25,6 +24,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "heroku-postbuild": "yarn build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -43,10 +43,11 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:3001/", 
+  "proxy": "http://localhost:3001/",
   "devDependencies": {
     "body-parser": "^1.19.0",
     "concurrently": "^4.1.0",
-    "nodemon": "^1.18.7"
+    "nodemon": "^1.18.7",
+    "react-scripts": "0.8.4"
   }
 }
