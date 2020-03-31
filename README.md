@@ -8,7 +8,7 @@ We have created a standalone web app which will be connected to the Zoe VR App. 
 
 The flow for the user interface starts off with a log-in screen for user (teachers) authorization, a page to view existing user projects, a page to create a new project, a page to generate a unique code that grants students access to the project in Unity, and a dashboard page for teachers to view all created projects.
 
-The link to the live application can be found here.
+The link to the live application can be found [here](https://zoe-project.herokuapp.com/).
 
 ## Technology 
 
