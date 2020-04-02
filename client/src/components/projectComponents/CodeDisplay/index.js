@@ -39,7 +39,6 @@ const DisplayCode = () => {
           Input this code in Zoe VR to connect to this project
         </p>
       </Box>
-  {/* Needs link fixed so that user state is maintained when routed to dashboard */}
       <Link to="/dashboard">
         <Button id="back-to-project" variant="contained">
           Back to Dashboard

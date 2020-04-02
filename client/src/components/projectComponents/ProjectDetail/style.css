@@ -1,0 +1,53 @@
+.project-detail h1 {
+    margin: 20px;
+    padding: 20px;
+    font-size: 45px !important;
+}
+
+.project-detail p {
+    margin: 20px;
+    padding: 20px;
+    color: #a4a4a4;
+}
+
+.project-detail {
+    margin-bottom: 100px;
+}
+
+.project-detail-grid {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.project-detail-text {
+    flex: 1;
+}
+
+.student-display-container {
+    flex: 1;
+    margin-top: 100px;
+    height: 300px;
+    overflow-y: auto;
+}
+
+@media (max-width: 500px) {
+    .project-detail-grid {
+        display: block;
+    }
+}
+
+.code-display-container {
+    text-align: center;
+    border: 1px solid #191919;
+    font-size: 40px!important;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+button {
+    max-width: 200px;
+    display: block !important;
+    margin: 0 auto !important;
+    margin-top: 20px !important;
+}
+

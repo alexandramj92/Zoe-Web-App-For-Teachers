@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import { Router, Redirect } from '@reach/router';
 import Dashboard from './pages/Dashboard';
 import ProjectStudents from './components/studentComponents/ProjectStudents';
+import ProjectDetail from './components/projectComponents/ProjectDetail/ProjectDetail';
 import NotFound from './pages/NotFound/NotFound';
 
 import ProjectState from './context/projects/ProjectState';
@@ -25,6 +26,7 @@ const App = (props) => {
         <Router>
           <Login path="/" />
           {isAuthenticated ? <Dashboard path="/dashboard" /> : <Redirect noThrow from="/dashboard" to="/" />}
+          {isAuthenticated ? <ProjectDetail path="/project/:id" /> : <Redirect noThrow from="/project" to="/" />}
           {isAuthenticated ? <CreateProject path="/addproject" /> : <Redirect noThrow from="/addproject" to="/" />}
           {isAuthenticated ? <ProjectStudents path="/projectStudents" /> : <Redirect noThrow from="/projectStudents" to="/" />}
           {isAuthenticated ? <CodeDisplay path="/code" /> : <Redirect noThrow from="/code" to="/" />}
