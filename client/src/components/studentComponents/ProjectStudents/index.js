@@ -1,12 +1,9 @@
 import React, { useState, useContext, useEffect } from 'react';
-// import Students from '../../components/studentComponents/Students';
-// import Projects from '../../components/projectComponents/Projects';
-import ProjectStudentsDisplay from '../../studentComponents/ProjectStudentsDisplay';
 import Button from '@material-ui/core/Button';
 import { Container } from '@material-ui/core';
 import { Link } from '@reach/router';
 
-import AddStudentModal from '../AddStudentModal';
+import AddStudentModalDash from '../AddStudentModalDash';
 import StudentCard from '../StudentCard';
 
 import './style.css';
@@ -25,26 +22,15 @@ const ProjectStudents = () => {
   const { current, activeProject } = projectContext;
 
 
-  // const [students, setStudents] = useState([]);
   const [classStudents, setClassStudents] = useState([]);
 
   const projectId = localStorage.getItem('projectId');
 
   const getClassStudentsData = async user => {
     const res = await API.getAll();
-    // console.log(res.data);
-    // res.filter(res[0].username === username);
     setClassStudents(res.data.students);  
   
   }
-
-  // const getStudentData = async projectId => {
-
-  //   const res = await API.getProjectStudents(projectId);
-  //   console.log(res.data[0].students, "Get project students API Call!");
-  //   // res.filter(res[0].username === username);
-  //   setStudents(res.data[0].students);
-  // };
 
 
   useEffect(() => {
@@ -69,7 +55,7 @@ const ProjectStudents = () => {
         />
       ))}
       <div className="add-student-modal">
-        <AddStudentModal />
+        <AddStudentModalDash />
       </div>
       <div className="add-students-button-display">
           <Link to="/code">

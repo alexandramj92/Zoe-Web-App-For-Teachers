@@ -50,6 +50,26 @@ module.exports = {
 
     },
 
+    removeProjectStudent: function(req, res) {
+      // const student = new db.Student(req.body);
+      const targetProject = req.params.id;
+      console.log(req.body);
+      const targetStudent = req.body.studentId;
+      console.log(targetProject, "Target Project id!");
+      console.log(targetStudent, "Target Student id!");
+
+      // console.log(req.body, "Student data!");
+
+     
+      //pushes new student into the specific project
+        db.Project.findOneAndUpdate({"_id" : `${targetProject}`}, {$pull: {students: `${targetStudent}`}}, function(err, student){
+        if(err) console.log(err);
+        else res.json('Successfully removed student from the project');
+
+      })
+
+    },
+
     remove: function(req, res) {
       //deletes a student based on the student id in req.params
       db.Student.findByIdAndRemove({_id: req.params.id}, function(err, student){

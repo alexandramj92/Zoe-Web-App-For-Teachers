@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import StudentCard from '../StudentCard';
+import StudentCardDash from '../StudentCardDash';
 import AddStudentModalDash from '../AddStudentModalDash';
 import AuthContext from '../../../context/auth/authContext';
 import ProjectContext from '../../../context/projects/projectContext';
@@ -23,7 +23,7 @@ const Students = (props) => {
     <div>
       <h2>Students</h2>
       {props.students.map(s => (
-        <StudentCard
+        <StudentCardDash
           key={s._id}
           id={s._id}
           src={s.icon}
