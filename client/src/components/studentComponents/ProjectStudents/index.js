@@ -25,28 +25,32 @@ const ProjectStudents = () => {
   const { current, activeProject } = projectContext;
 
 
-  const [students, setStudents] = useState([]);
+  // const [students, setStudents] = useState([]);
+  const [classStudents, setClassStudents] = useState([]);
 
   const projectId = localStorage.getItem('projectId');
-  console.log(projectId);
 
-  const getStudentData = async projectId => {
-
-    const res = await API.getProjectStudents(projectId);
-    console.log(res.data[0].students);
+  const getClassStudentsData = async user => {
+    const res = await API.getAll();
+    // console.log(res.data);
     // res.filter(res[0].username === username);
-    setStudents(res.data[0].students);
-  };
+    setClassStudents(res.data.students);  
+  
+  }
 
-  const onClick = event => {
-    event.preventDefault();
-  };
+  // const getStudentData = async projectId => {
+
+  //   const res = await API.getProjectStudents(projectId);
+  //   console.log(res.data[0].students, "Get project students API Call!");
+  //   // res.filter(res[0].username === username);
+  //   setStudents(res.data[0].students);
+  // };
+
 
   useEffect(() => {
     loadUser(true);
-    // activeProject();
-    getStudentData(projectId);
-  }, [students]);
+    getClassStudentsData(user);
+  }, [classStudents]);
 
   return (
     <Container>
@@ -54,15 +58,15 @@ const ProjectStudents = () => {
       <div className="add-students-header">
        <h1>Assign Students</h1>
         <p>To New Project</p>
-      {students.map(s => (
+
+      {classStudents.map(s => (
         <StudentCard
           key={s._id}
-          value={s._id}
+          id={s._id}
           src={s.icon}
           firstName={s.firstName}
           lastName={s.lastName}
-          onClick={onClick}
-        ></StudentCard>
+        />
       ))}
       <div className="add-student-modal">
         <AddStudentModal />

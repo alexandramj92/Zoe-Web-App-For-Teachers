@@ -31,20 +31,22 @@ module.exports = {
     },
 
     createbyProject: function(req, res) {
-      const student = new db.Student(req.body);
+      // const student = new db.Student(req.body);
       const targetProject = req.params.id;
+      console.log(req.body);
+      const targetStudent = req.body.studentId;
       console.log(targetProject, "Target Project id!");
-      console.log(req.body, "Student data!");
+      console.log(targetStudent, "Target Student id!");
 
-      db.Student
-      //creates new student
-      .create(student)
+      // console.log(req.body, "Student data!");
+
+     
       //pushes new student into the specific project
-      .then(db.Project.findOneAndUpdate({"_id" : `${targetProject}`}, {$push: {students: `${student._id}`}}, function(err, student){
+        db.Project.findOneAndUpdate({"_id" : `${targetProject}`}, {$push: {students: `${targetStudent}`}}, function(err, student){
         if(err) console.log(err);
-        else res.json('Successfully created student and added it to the project');
+        else res.json('Successfully added student to the project');
 
-      }))
+      })
 
     },
 

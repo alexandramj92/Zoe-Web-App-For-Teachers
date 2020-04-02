@@ -16,8 +16,6 @@ const Dashboard = () => {
 
   const getUserData = async user => {
     const res = await API.getAll();
-    console.log(res.data);
-    // res.filter(res[0].username === username);
     setProjects(res.data.projects);
     setStudents(res.data.students);
   };

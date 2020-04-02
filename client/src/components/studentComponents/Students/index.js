@@ -7,7 +7,7 @@ import './style.css';
 
 require('../StudentCard/style.css');
 
-const Students = props => {
+const Students = (props) => {
   const authContext = useContext(AuthContext);
   const projectContext = useContext(ProjectContext);
   const { current } = projectContext;
@@ -17,15 +17,7 @@ const Students = props => {
     loadUser(true);
   },[]);
 
-  const [student, setStudent] = useState({
-    firstName: props.firstName,
-    lastName: props.lastName,
-    id: props._id
-  });
 
-  const onClick = event => {
-    event.preventDefault();
-  };
 
   return (
     <div>
@@ -33,12 +25,11 @@ const Students = props => {
       {props.students.map(s => (
         <StudentCard
           key={s._id}
-          value={s._id}
+          id={s._id}
           src={s.icon}
           firstName={s.firstName}
           lastName={s.lastName}
-          onClick={onClick}
-        ></StudentCard>
+        />
       ))}
       <div className="add-student-modal">
         <AddStudentModalDash />
