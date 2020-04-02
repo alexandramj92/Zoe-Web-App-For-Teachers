@@ -1,4 +1,4 @@
-.student-card#notSelected {
+.student-card {
     padding-left: 10px;
     background-color: #fafafa;
     width: 400px;
@@ -7,14 +7,6 @@
     margin: 20px;
 }
 
-.student-card#selected {
-    padding-left: 10px;
-    background-color: rgb(142, 211, 142);
-    width: 400px;
-    border-radius: 20px;
-    border: 1px solid #cbcbcb;
-    margin: 20px;
-}
 
 .student-card h4 {
     display: inline-flex;
@@ -25,9 +17,7 @@
     text-align: center;
 }
 
-.student-card:hover {
-    cursor: pointer;
-}
+
 
 #student-card-icon {
     display: inline-flex;

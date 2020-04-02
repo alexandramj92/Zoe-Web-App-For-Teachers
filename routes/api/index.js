@@ -10,6 +10,7 @@ const authenticatedRoutes = require("./authenticated");
 const deleteProjectRoutes = require("./deleteproject");
 const deleteStudentRoutes = require("./deletestudent");
 const addProjectStudentsRoutes = require("./addProjectStudents");
+const removeProjectStudentsRoutes = require("./removeProjectStudents");
 
 
 //api routes
@@ -24,6 +25,7 @@ router.use("/authenticated", authenticatedRoutes);
 router.use("/deleteproject", deleteProjectRoutes);
 router.use("/deletestudent", deleteStudentRoutes);
 router.use("/addProjectStudents", addProjectStudentsRoutes);
+router.use("/removeProjectStudents", removeProjectStudentsRoutes);
 
 
 

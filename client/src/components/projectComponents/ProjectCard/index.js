@@ -11,8 +11,7 @@ const ProjectCard = (props) => {
 
     const { id } = project;
 
-    const onDelete = (id) => {
-        // needs api route built on backend
+    const onDelete = () => {
         console.log(id);
         API.deleteProject(id)
       };
