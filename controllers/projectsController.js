@@ -11,7 +11,12 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
-
+  getProjectbyCode: function(req, res) {
+    db.Project.find({projectCode : req.params.projectCode})
+    .populate("students")
+    .then(dbProject => res.json(dbProject))
+    .catch(err => res.status(422).json(err));  
+  },
     //Create a new project and associate it with the specific user that is logged in
     create: function(req, res) {
       console.log(req.body);
