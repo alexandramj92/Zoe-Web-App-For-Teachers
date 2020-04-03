@@ -19,6 +19,9 @@ export default {
   saveStudent: function(studentData) {
     return axios.post('/api/addstudent', studentData);
   },
+  deleteStudent: function(id) {
+    return axios.delete('/api/deletestudent/' + id);
+  },
   addProjectStudents: function(projectId, studentId) {
     return axios.post('/api/addProjectStudents/' + projectId, studentId);
   },
