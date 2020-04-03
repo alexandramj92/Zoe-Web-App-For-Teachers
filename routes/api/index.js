@@ -11,6 +11,7 @@ const deleteProjectRoutes = require("./deleteproject");
 const deleteStudentRoutes = require("./deletestudent");
 const addProjectStudentsRoutes = require("./addProjectStudents");
 const removeProjectStudentsRoutes = require("./removeProjectStudents");
+const getProjectRoutes = require("./getProject");
 
 
 //api routes
@@ -26,6 +27,8 @@ router.use("/deleteproject", deleteProjectRoutes);
 router.use("/deletestudent", deleteStudentRoutes);
 router.use("/addProjectStudents", addProjectStudentsRoutes);
 router.use("/removeProjectStudents", removeProjectStudentsRoutes);
+router.use("/getProject", getProjectRoutes);
+
 
 
 
