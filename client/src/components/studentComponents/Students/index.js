@@ -22,6 +22,7 @@ const Students = (props) => {
   return (
     <div>
       <h2>Students</h2>
+      <div className="student-list">
       {props.students.map(s => (
         <StudentCardDash
           key={s._id}
@@ -31,6 +32,7 @@ const Students = (props) => {
           lastName={s.lastName}
         />
       ))}
+      </div>
       <div className="add-student-modal">
         <AddStudentModalDash />
       </div>

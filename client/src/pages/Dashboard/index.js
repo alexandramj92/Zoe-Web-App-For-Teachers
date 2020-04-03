@@ -28,8 +28,13 @@ const Dashboard = () => {
   return (
     <div>
       <div className="display-dashboard">
-        <Projects projects={projects} />
+      <div className="display-projects">
+      <Projects projects={projects} />
+      </div>
+        <div className="display-students">
         <Students students={students} />
+        </div>
+        
       </div>
     </div>
   );

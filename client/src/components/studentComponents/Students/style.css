@@ -2,3 +2,8 @@
   display: block;
   margin: 0 auto;
 }
+
+.student-list {
+  max-height: 550px;
+  overflow-y: scroll
+}
