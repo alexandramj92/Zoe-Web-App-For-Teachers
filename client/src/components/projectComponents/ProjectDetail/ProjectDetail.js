@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import API from '../../../utils/API';
-import StudentCard from '../../studentComponents/StudentCard';
+import StudentCardDash from '../../studentComponents/StudentCardDash';
 import Button from '@material-ui/core/Button';
 import { Link } from '@reach/router';
 import './style.css';
@@ -47,7 +47,7 @@ const ProjectDetail = (props) => {
             {/* Map students to display here */}
             <div className="student-display-container">
                 {projectStudents.map(s => (
-                <StudentCard
+                <StudentCardDash
                     key={s._id}
                     id={s._id}
                     src={s.icon}

@@ -44,7 +44,7 @@ const ProjectStudents = () => {
       <div className="add-students-header">
        <h1>Assign Students</h1>
         <p>To New Project</p>
-
+      <div className="student-list">
       {classStudents.map(s => (
         <StudentCard
           key={s._id}
@@ -54,6 +54,7 @@ const ProjectStudents = () => {
           lastName={s.lastName}
         />
       ))}
+      </div>
       <div className="add-student-modal">
         <AddStudentModalDash />
       </div>

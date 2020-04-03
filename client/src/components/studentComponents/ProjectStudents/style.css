@@ -2,3 +2,9 @@
     margin-top: 20px;
     margin-bottom: 100px;
 }
+
+.student-list {
+    max-height: 400px;
+    overflow-y: scroll
+  }
+  
