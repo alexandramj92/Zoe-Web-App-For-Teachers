@@ -9,6 +9,7 @@ import { Router, Redirect } from '@reach/router';
 import Dashboard from './pages/Dashboard';
 import ProjectStudents from './components/studentComponents/ProjectStudents';
 import ProjectDetail from './components/projectComponents/ProjectDetail/ProjectDetail';
+import Register from './pages/Register';
 import NotFound from './pages/NotFound/NotFound';
 
 import ProjectState from './context/projects/ProjectState';
@@ -25,6 +26,7 @@ const App = (props) => {
         <Navbar />
         <Router>
           <Login path="/" />
+          <Register path="/register"/>
           {isAuthenticated ? <Dashboard path="/dashboard" /> : <Redirect noThrow from="/dashboard" to="/" />}
           {isAuthenticated ? <ProjectDetail path="/project/:id" /> : <Redirect noThrow from="/project" to="/" />}
           {isAuthenticated ? <CreateProject path="/addproject" /> : <Redirect noThrow from="/addproject" to="/" />}

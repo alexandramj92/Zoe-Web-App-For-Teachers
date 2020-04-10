@@ -3,7 +3,7 @@ const db = require("../models");
 module.exports = {
 //save new users to database
     create: function(req, res) {
-      const {username, password} = req.body;
+      const {username, email, password} = req.body;
 
       db.User
       .findOne({username}, (err, user) => {
@@ -12,7 +12,7 @@ module.exports = {
           if(user)
             res.status(400).json({message: {msgBody: "Username is already taken", msgError: true}});
           else {
-              const newUser = new db.User({username, password});
+              const newUser = new db.User({username, email, password});
               newUser.save(err => {
                   if(err)
                     res.status(500).json({message: {msgBody: "Error has occured", msgError: true}});
