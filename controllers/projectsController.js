@@ -60,6 +60,8 @@ module.exports = {
         },
         { new: true }
       )
+      .then(dbProject => res.json(dbProject))
+      .catch(err => res.status(500).jsn(err))
     }
   };
   
