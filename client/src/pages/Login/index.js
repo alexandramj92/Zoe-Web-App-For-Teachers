@@ -108,6 +108,13 @@ export default function SimpleCard() {
     }
   };
 
+  //when the user indicates they are not registered yet, they are directed to the registration page
+  const handleRegister = event => {
+    event.preventDefault();
+
+    navigate('/register');
+  };
+
   return (
     <Grid>
       <Container id="login-cont" maxWidth="sm">
@@ -123,8 +130,8 @@ export default function SimpleCard() {
               onSubmit={handleSubmit}
             >
               <Grid container wrap="nowrap">
-                {/* Email Input */}
-                <h4>E-mail</h4>
+                {/* Username Input */}
+                <h4>Username</h4>
               </Grid>
 
               <Grid container wrap="nowrap">
@@ -136,7 +143,7 @@ export default function SimpleCard() {
                     id="my-input"
                     name="username"
                     aria-describedby="my-helper-text"
-                    placeholder="School.ad@gmail.com"
+                    placeholder="username"
                     onChange={onChange}
                   />
                 </FormControl>
@@ -208,7 +215,7 @@ export default function SimpleCard() {
               <Grid container wrap="nowrap">
                 <Link
                   href="#"
-                  onClick={preventDefault}
+                  onClick={handleRegister}
                   variant="body2"
                   className="login-a"
                 >

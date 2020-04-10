@@ -1,12 +1,12 @@
 import axios from 'axios';
 
 export default {
+  registerUser: function(userData) {
+    return axios.post('api/register', userData);
+  },
   getUserId: function(userId) {
     return axios.get('/api/users', userId);
   },
-  // getProjects: function() {
-  //     return axios.get('/api/projects');
-  // },
   getProject: function(id) {
     return axios.get('/api/projects/' + id);
   },

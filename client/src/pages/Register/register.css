@@ -1,0 +1,29 @@
+.hidden {
+    color: white;
+    font-size: 10px;
+}
+
+.visible {
+    color: red;
+    font-size: 10px;
+}
+
+
+#input-sec {
+    margin: auto;
+}
+#register-but {
+    background-color: rgb(224, 167, 10)!important;
+    color: white!important;
+    border-radius: 1.5em!important;
+    padding: 6px 40px!important;
+    margin-top: 10px;
+
+
+}
+
+
+#but-div {
+    justify-content: center;
+}
+
