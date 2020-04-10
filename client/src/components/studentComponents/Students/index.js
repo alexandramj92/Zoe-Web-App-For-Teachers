@@ -1,23 +1,19 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import StudentCardDash from '../StudentCardDash';
 import AddStudentModalDash from '../AddStudentModalDash';
 import AuthContext from '../../../context/auth/authContext';
-import ProjectContext from '../../../context/projects/projectContext';
 import './style.css';
 
 require('../StudentCard/style.css');
 
 const Students = (props) => {
   const authContext = useContext(AuthContext);
-  const projectContext = useContext(ProjectContext);
-  const { current } = projectContext;
-  const { id, loadUser, activeUser } = authContext;
+  const { loadUser } = authContext;
 
   useEffect(() => {
     loadUser(true);
+    // eslint-disable-next-line
   },[]);
-
-
 
   return (
     <div>

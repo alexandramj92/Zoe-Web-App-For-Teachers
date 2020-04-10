@@ -1,12 +1,8 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import { Avatar } from '@material-ui/core';
 import './style.css';
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline'
 import API from '../../../utils/API';
-
-
-
-
 
 const StudentCardDash = (props) => {
 

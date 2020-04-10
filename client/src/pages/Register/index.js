@@ -180,6 +180,7 @@ return (
                           onClick={handleClickShowPassword}
                           onMouseDown={handleMouseDownPassword}
                           edge="end"
+                          className="icon-visible"
                         >
                           {values.showPassword ? (
                             <Visibility />
@@ -214,6 +215,7 @@ return (
                           onClick={handleClickShowConfirmedPassword}
                           onMouseDown={handleMouseDownPassword}
                           edge="end"
+                          className="icon-visible"
                         >
                           {values.showPassword ? (
                             <Visibility />

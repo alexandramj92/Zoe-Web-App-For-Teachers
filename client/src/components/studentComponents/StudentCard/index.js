@@ -1,11 +1,7 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import { Avatar } from '@material-ui/core';
 import API from '../../../utils/API';
 require ('./style.css');
-
-
-
-
 
 const StudentCard = (props) => {
     const [student, setStudent]=useState({
@@ -14,10 +10,7 @@ const StudentCard = (props) => {
         id: props.id,
         selected: false
     })
-
-
-   
-
+    
     const studentId = {
        "studentId": student.id
     };

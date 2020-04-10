@@ -38,7 +38,6 @@ module.exports = {
         }
       })
         },
-  
     
     //removes a project based on the project id passed in the req.params
     remove: function(req, res) {
@@ -46,6 +45,21 @@ module.exports = {
         if(err) res.json(err);
         else res.json('Successfully removed project');
     });
+    },
+
+    // update a project based on id passed in the req.params
+    update: function (req, res) {
+      const { projectName, projectDescription } = req.body
+      db.Project.findByIdAndUpdate(
+        {_id: req.params.id},
+        { $set: 
+          { 
+            projectName: projectName,
+            projectDescription: projectDescription
+          }
+        },
+        { new: true }
+      )
     }
   };
   

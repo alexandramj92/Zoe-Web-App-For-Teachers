@@ -1,11 +1,10 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, { useContext, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Container } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import { Link, navigate } from '@reach/router';
-import API from '../../../utils/API';
 import AuthContext from '../../../context/auth/authContext';
 import ProjectContext from '../../../context/projects/projectContext';
 
@@ -24,7 +23,7 @@ export default function MultilineTextFields() {
     const authContext = useContext(AuthContext);
     const projectContext = useContext(ProjectContext);
     const { saveProject } = projectContext;
-    const { id, loadUser, activeUser } = authContext;
+    const { id, loadUser } = authContext;
     useEffect(() => {
       loadUser(true);
     },[]);

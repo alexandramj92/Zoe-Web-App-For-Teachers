@@ -17,7 +17,7 @@ export default function FormDialog(props) {
   const authContext = useContext(AuthContext);
   const projectContext = useContext(ProjectContext);
 
-  const { current, activeProject } = projectContext;
+  const { activeProject } = projectContext;
   const { loadUser, activeUser } = authContext;
   useEffect(() => {
     loadUser(true);
@@ -62,11 +62,11 @@ export default function FormDialog(props) {
 
   return (
     <div>
-      <Button variant="none" onClick={handleClickOpen}>
-        <div className="button-area">
+      <div className="button-area">
+        <Button variant="none" onClick={handleClickOpen}>
           <AddStudentButton />
-        </div>
-      </Button>
+        </Button>
+      </div>
       <Dialog
         open={open}
         onClose={handleClose}

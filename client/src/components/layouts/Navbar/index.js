@@ -22,10 +22,11 @@ const useStyles = makeStyles(theme => ({
 
 export default function DenseAppBar() {
   const authContext = useContext(AuthContext);
-  const { isAuthenticated, logout, user, activeUser, loadUser } = authContext;
+  const { isAuthenticated, logout, user, activeUser } = authContext;
 
   useEffect(() => {
     activeUser();
+    // eslint-disable-next-line
   },[]);
 
   const classes = useStyles();

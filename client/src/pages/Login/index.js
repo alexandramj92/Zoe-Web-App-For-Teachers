@@ -173,6 +173,7 @@ export default function SimpleCard() {
                           onClick={handleClickShowPassword}
                           onMouseDown={handleMouseDownPassword}
                           edge="end"
+                          id="icon-eye"
                         >
                           {values.showPassword ? (
                             <Visibility />
@@ -201,7 +202,7 @@ export default function SimpleCard() {
                 />
               </Grid>
 
-              <Grid container wrap="nowrap">
+              {/* <Grid container wrap="nowrap">
                 <Link
                   href="#"
                   onClick={preventDefault}
@@ -210,7 +211,7 @@ export default function SimpleCard() {
                 >
                   {'Forgot your password?'}
                 </Link>
-              </Grid>
+              </Grid> */}
 
               <Grid container wrap="nowrap">
                 <Link
@@ -219,7 +220,7 @@ export default function SimpleCard() {
                   variant="body2"
                   className="login-a"
                 >
-                  {"Not registered? It's here!"}
+                  {"Not registered? Click here!"}
                 </Link>
               </Grid>
 

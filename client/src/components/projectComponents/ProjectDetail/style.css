@@ -51,3 +51,18 @@ button {
     margin-top: 20px !important;
 }
 
+#edit-project {
+    border-radius: 1.5em !important;
+}
+
+#submit-edit {
+    border-radius: 1.5em !important;
+}
+
+input { 
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
