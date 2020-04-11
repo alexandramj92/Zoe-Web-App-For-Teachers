@@ -32,7 +32,7 @@ label {
 }
 
 input {
-    height: 3px!important;
+    height: 10px!important;
     padding-top: 15px!important;
     font-size: 12px!important;
 }
@@ -44,15 +44,12 @@ h4{
 
 }
 
-
 #login-but {
     background-color: rgb(224, 167, 10)!important;
     color: white!important;
     border-radius: 1.5em!important;
     padding: 6px 40px!important;
     margin-top: 10px;
-
-
 }
 
 #but-div {
@@ -61,6 +58,9 @@ h4{
 
 #checkbox svg, button svg {
     width: 16px!important;
+}
 
+#icon-eye {
+    margin-top: 0!important;
 }
 

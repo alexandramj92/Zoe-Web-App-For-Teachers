@@ -2,8 +2,10 @@
     display: inline !important;
   }
   
-  .button-area {
-    display: block;
-    margin: 0 auto;
-  }
+.button-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 65%;
+}
   

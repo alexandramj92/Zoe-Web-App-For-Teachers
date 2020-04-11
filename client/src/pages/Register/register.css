@@ -18,12 +18,12 @@
     border-radius: 1.5em!important;
     padding: 6px 40px!important;
     margin-top: 10px;
-
-
 }
-
 
 #but-div {
     justify-content: center;
 }
 
+.icon-visible {
+    margin-top: 0!important;
+}

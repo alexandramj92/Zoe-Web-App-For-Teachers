@@ -1,4 +1,4 @@
-import React, { Component, useState} from 'react';
+import React, { useState} from 'react';
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline'
 import './style.css';
 import API from '../../../utils/API';

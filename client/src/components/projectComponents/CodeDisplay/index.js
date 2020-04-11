@@ -17,12 +17,13 @@ const defaultProps = {
 const DisplayCode = () => {
   const authContext = useContext(AuthContext);
   const projectContext = useContext(ProjectContext);
-  const { current, activeProject } = projectContext;
-  const { loadUser, activeUser } = authContext
+  const { activeProject } = projectContext;
+  const { loadUser } = authContext
 
   useEffect(() => {
     loadUser(true);
     activeProject();
+    // eslint-disable-next-line
   },[]);
   // Dynamically render project name and code
   const projectCode = localStorage.getItem('projectCode')

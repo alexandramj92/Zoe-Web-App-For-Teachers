@@ -18,7 +18,7 @@ const ProjectStudents = () => {
   const projectContext = useContext(ProjectContext);
 
 
-  const { user, activeUser, loadUser } = authContext;
+  const { user, loadUser } = authContext;
   const { current, activeProject } = projectContext;
 
 

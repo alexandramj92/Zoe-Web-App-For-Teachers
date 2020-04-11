@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import API from '../../../utils/API';
-import StudentCardDash from '../../studentComponents/StudentCardDash';
+import ProjectDetailStudentCard from '../../studentComponents/ProjectDetailStudentCard';
 import Button from '@material-ui/core/Button';
+import AuthContext from '../../../context/auth/authContext';
 import { Link } from '@reach/router';
 import './style.css';
 
-// to do:
-// get project id from req.params and use id to call 
-// the .populate function in the project controller
-// using res.data from .populate API call, pass in the data to the project detail component
-
 const ProjectDetail = (props) => {
+
+    const authContext = useContext(AuthContext);
+
+    const { loadUser } = authContext;
 
     const [project, setProject] = useState({
         projectName: '',
@@ -19,6 +19,8 @@ const ProjectDetail = (props) => {
         projectStudents: []
     })
 
+    const [form, setForm] = useState(false);
+ 
     const projectId = props.id;
 
     const { projectName, projectCode, projectDescription, projectStudents } = project;
@@ -34,20 +36,58 @@ const ProjectDetail = (props) => {
         })
       };
     useEffect(() =>  {
+        loadUser(true);
         getProject(projectId);
     }, [])
+
+    const editProject = () => {
+        setForm(true);
+    }
+
+    const onChange = e =>
+        setProject({
+            ...project, [e.target.name]: e.target.value
+        });
+    
+    const updateProject = async () => {
+        setForm(false);
+        const projectData = project;
+        console.log(projectData);
+        const res = await API.updateProject(projectId, projectData)
+        console.log(res.data);
+    }
 
     return (
         <div className="project-detail">
             <div className="project-detail-grid">
             <div className="project-detail-text">
-            <h1>Project: {projectName}</h1>
-                <p>{projectDescription}</p>
+            {form ? 
+                <h1>Project: 
+                <input
+                    type="text"
+                    placeholder={projectName}
+                    name="projectName"
+                    value={projectName}
+                    onChange={onChange}
+                />
+                </h1> : 
+            <h1>Project: {projectName}</h1>}
+            
+            {form ?
+                <p><input
+                    type="text"
+                    placeholder={projectDescription}
+                    name="projectDescription"
+                    value={projectDescription}
+                    onChange={onChange}
+                    />
+                    </p> : 
+            <p>{projectDescription}</p>}
             </div>
             {/* Map students to display here */}
             <div className="student-display-container">
                 {projectStudents.map(s => (
-                <StudentCardDash
+                <ProjectDetailStudentCard
                     key={s._id}
                     id={s._id}
                     src={s.icon}
@@ -60,6 +100,12 @@ const ProjectDetail = (props) => {
             <div className="code-display-container">
                 <h3>{projectCode}</h3>
             </div>
+            {form ? 
+            <Button id="submit-edit" onClick={updateProject} variant="contained">
+                Update Project
+            </Button> : <Button id="edit-project" onClick={editProject} variant="contained">
+                Edit Project
+            </Button>}
             <Link to="/dashboard">
                 <Button id="back-to-project" variant="contained">
                 Back to Dashboard

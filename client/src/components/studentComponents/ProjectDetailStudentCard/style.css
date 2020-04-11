@@ -1,0 +1,26 @@
+.student-card {
+    padding-left: 10px;
+    background-color: #fafafa;
+    width: 400px;
+    border-radius: 20px;
+    border: 1px solid #cbcbcb;
+    margin: 20px;
+}
+
+.student-card h4 {
+    display: inline-flex;
+    margin: 5px !important;
+    line-height: 1em !important;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#student-card-icon {
+    display: inline-flex;
+    margin: 5px;
+}
+
+.add-student-modal {
+    width: 400px;
+}
