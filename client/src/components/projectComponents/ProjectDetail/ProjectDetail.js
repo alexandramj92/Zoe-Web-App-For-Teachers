@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import API from '../../../utils/API';
-import StudentCardDash from '../../studentComponents/StudentCardDash';
+import ProjectDetailStudentCard from '../../studentComponents/ProjectDetailStudentCard';
 import Button from '@material-ui/core/Button';
 import AuthContext from '../../../context/auth/authContext';
 import { Link } from '@reach/router';
@@ -49,9 +49,10 @@ const ProjectDetail = (props) => {
             ...project, [e.target.name]: e.target.value
         });
     
-    const updateProject = async (projectId) => {
+    const updateProject = async () => {
         setForm(false);
         const projectData = project;
+        console.log(projectData);
         const res = await API.updateProject(projectId, projectData)
         console.log(res.data);
     }
@@ -86,7 +87,7 @@ const ProjectDetail = (props) => {
             {/* Map students to display here */}
             <div className="student-display-container">
                 {projectStudents.map(s => (
-                <StudentCardDash
+                <ProjectDetailStudentCard
                     key={s._id}
                     id={s._id}
                     src={s.icon}

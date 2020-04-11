@@ -49,6 +49,7 @@ module.exports = {
 
     // update a project based on id passed in the req.params
     update: function (req, res) {
+      console.log(req.body)
       const { projectName, projectDescription } = req.body
       db.Project.findByIdAndUpdate(
         {_id: req.params.id},
@@ -61,7 +62,7 @@ module.exports = {
         { new: true }
       )
       .then(dbProject => res.json(dbProject))
-      .catch(err => res.status(500).jsn(err))
+      .catch(err => res.status(500).json(err))
     }
   };
   
